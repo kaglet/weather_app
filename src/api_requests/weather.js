@@ -1,6 +1,7 @@
 // API Key:
-const API_KEY = "bae835189d75464b96f8282624170";
+const API_KEY = "bae835189d75464b96f82826241704";
 
+// Fetch from weather api using their error codes to inform request rejections not explicitly detected as errors
 const tryFetch = async function tryFetch(requestString) {
   let response = await fetch(requestString, { mode: "cors" });
   // Custom handle errors by generating a promise reject during our specifications not implicit specifications
@@ -13,7 +14,6 @@ const tryFetch = async function tryFetch(requestString) {
   }
 };
 
-// TODO: Check if nested async here is needed
 const fetchWeatherByLocation = function fetchWeatherByLocation(location) {
   return tryFetch(
     `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${location}`
