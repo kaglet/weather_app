@@ -23,7 +23,12 @@
 
 body {
   font-family: var(--main-font-family);
+  font-size: 3rem;
   min-height: 100vh;
+}
+
+input {
+  font-size: inherit;
 }
 
 .test {

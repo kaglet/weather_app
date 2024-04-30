@@ -2,11 +2,7 @@
 
 import "./styles.css";
 import exampleImage from "Images/ahtziri-lagarde-4_FsMDmCc6A-unsplash.jpg";
-
-import {
-  fetchWeatherByLocation,
-  getCitiesStartingWith,
-} from "./api_requests/weather";
+import { createInputForm } from "./input_form/input_form";
 
 function component() {
   const element = document.createElement("div");
@@ -22,15 +18,6 @@ function component() {
   return element;
 }
 
-function testWeather() {
-  getCitiesStartingWith("L")
-    .then((result) => console.log(result))
-    .catch(alert);
-  fetchWeatherByLocation("Johannesburg")
-    .then((result) => console.log(result))
-    .catch(alert);
-}
-
-testWeather();
+createInputForm(document.querySelector("body"));
 
 document.body.appendChild(component());
