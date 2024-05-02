@@ -1,14 +1,30 @@
 // Gives only relevant data back to program
 let dataProcessor = (function dataProcessor() {
   // Extract required weather data on object
-  // No need to process yet, so for now virtually the same object is returned
   const processLocationObject = (object) => {
-    let simplifiedObj = {};
-    for (const key in object) {
-      simplifiedObj[key] = object[key];
-    }
+    let currentConditions = object.current;
+    let location = object.location;
 
-    return simplifiedObj;
+    let summary = {
+      text: currentConditions.condition.text,
+      icon: currentConditions.condition.icon,
+      temp_c: currentConditions.feelslike_c,
+      temp_f: currentConditions.feelslike_f,
+    };
+
+    let simplifiedLocation = {
+      name: location.name,
+      region: location.region,
+      country: location.country,
+    };
+
+    let extras = {
+      wind_kph: currentConditions.wind_kph,
+      wind_mph: currentConditions.wind_mph,
+      humidity: currentConditions.humidity,
+    };
+
+    return { summary, extras, simplifiedLocation };
   };
 
   // Extract required data from array of locations

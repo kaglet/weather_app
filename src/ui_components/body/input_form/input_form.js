@@ -1,5 +1,5 @@
-import dataProcessor from "../api_data_processing/data_processor";
-import weatherDataRequester from "../api_requests/weather";
+import dataProcessor from "../../../api_data_processing/data_processor";
+import weatherDataRequester from "../../../api_requests/weather";
 
 function listenForUserInput(searchButton, locationInput) {
   searchButton.addEventListener("click", () => {
@@ -23,7 +23,7 @@ function listenForUserInput(searchButton, locationInput) {
   });
 }
 
-function createInputForm(parent) {
+function createInputForm() {
   let form = document.createElement("form");
   let locationLabel = document.createElement("label");
   let locationInput = document.createElement("input");
@@ -46,9 +46,10 @@ function createInputForm(parent) {
 
   wrapper.append(locationLabel, locationInput, searchButton);
   form.append(wrapper);
-  parent.append(form);
 
   listenForUserInput(searchButton, locationInput);
+
+  return form;
 }
 
 export { createInputForm };

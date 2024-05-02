@@ -5,8 +5,9 @@ const weatherDataRequester = (() => {
   // Fetch from weather api using their error codes to inform request rejections not explicitly detected as errors
   async function tryFetch(requestString) {
     let response = await fetch(requestString, { mode: "cors" });
-    // Custom handle errors by generating a promise reject during our specifications not implicit specifications
+    // Custom handle errors by generating a promise reject during our specifications not implicit API specifications
     if (response.status !== 200) {
+      // TODO: Handle errors in a more specific custom way rather than just receiving the error
       return Promise.reject(response);
     } else {
       let jsonResponse = await response.json();

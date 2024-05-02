@@ -2,7 +2,7 @@
 
 import "./styles.css";
 import exampleImage from "Images/ahtziri-lagarde-4_FsMDmCc6A-unsplash.jpg";
-import { createInputForm } from "./input_form/input_form";
+import { createInputForm } from "./ui_components/body/input_form/input_form";
 
 function component() {
   const element = document.createElement("div");
@@ -18,6 +18,6 @@ function component() {
   return element;
 }
 
-createInputForm(document.querySelector("body"));
+document.querySelector("body").append(createInputForm());
 
 document.body.appendChild(component());
