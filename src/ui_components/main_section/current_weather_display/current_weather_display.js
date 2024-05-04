@@ -13,11 +13,13 @@ function createMoreDetailsCard() {
 }
 
 function createCurrWeatherCard() {
-  let currWeatherCard = document.createElement("div");
+  let currWeatherCard = document.createElement("section");
   let todayTitle = document.createElement("h2");
   let todayDate = document.createElement("h3");
   let moreInfo = createMoreDetailsCard();
   let weatherSummary = createWeatherSummaryCard();
+
+  currWeatherCard.classList.add("current", "weather", "card");
 
   todayTitle.textContent = "Today";
   let today = new Date();

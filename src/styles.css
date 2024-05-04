@@ -13,24 +13,69 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: var(--main-font-family);
 }
 
 :root {
-  --main-font-family: bahianita, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+  --main-font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: var(--main-font-family);
+  --weather-card-height: 40rem;
+}
+
+h1, h2 {
+  font-size: 4rem;
+}
+
+section, div, p {
+  font-size: 2rem;
 }
 
 body {
-  font-family: var(--main-font-family);
-  font-size: 3rem;
   min-height: 100vh;
+  padding: 0.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
-input {
-  font-size: inherit;
+input, button {
+  font: inherit;
 }
 
-.test {
-    color: red;
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.current.weather.card, .future.weather.card {
+  min-height: var(--weather-card-height);
+}
+
+.current.weather.card {
+  background-color: darkblue;
+}
+
+.future.weather.card {
+  background-color: darkcyan;
+}
+
+section.main {
+  display: grid;
+  grid-template: auto 1fr / 2fr 5fr;
+  gap: 2rem;
+}
+
+form {
+  grid-column: 1 / span 2;
+}
+
+form > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+button, input[type="search"] {
+  padding: 0.3rem;
 }
