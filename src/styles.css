@@ -52,11 +52,14 @@ header {
 }
 
 .current.weather.card {
-  background-color: darkblue;
+  padding: 1rem;
+  background-color: rgb(0, 0, 26);
+  border-radius: 1rem;
+  color: white;
 }
 
 .future.weather.card {
-  background-color: darkcyan;
+  border-top: 6px solid darkcyan;
 }
 
 section.main {

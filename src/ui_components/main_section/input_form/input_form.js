@@ -1,25 +1,36 @@
 import dataProcessor from "../../../api_data_processing/data_processor";
 import weatherDataRequester from "../../../api_requests/weather";
+import loadController from "../../loading/loading_control";
+
+// Search
+// Get location
+// Tied to input but can be used separately e.g. input by press of enter key
+
+async function getWeatherWithLocation(location) {
+  // Nothing that this is doing that is not already done, call the other function if needed, you can wait for this before continuing to call UI changes too
+  // Use async function in another async function then
+  // The result is that of the promise if no `then` is placed on it
+
+  // After this awaited data is fetched remove loading bar
+  loadController.stopLoading();
+
+  return weather;
+}
+
+function getCitiesWithLocation(location) {}
 
 function listenForUserInput(searchButton, locationInput) {
-  searchButton.addEventListener("click", () => {
+  searchButton.addEventListener("click", async () => {
+    loadController.startLoading();
     let location = locationInput.value;
-    weatherDataRequester
-      .fetchWeatherByLocation(location)
-      .then((result) => {
-        console.log(dataProcessor.processLocationObject(result));
-      })
-      .catch((error) => console.log(error));
+    let weather = await weatherDataRequester.fetchWeatherByLocation(location);
   });
 
-  locationInput.addEventListener("input", () => {
+  locationInput.addEventListener("input", async () => {
     let location = locationInput.value;
-    weatherDataRequester
-      .getCitiesStartingWith(location)
-      .then((result) => {
-        console.log(dataProcessor.processLocationArray(result));
-      })
-      .catch((error) => console.log(error));
+    let locations = await weatherDataRequester.getCitiesStartingWith(location);
+
+    // Remove loading and show in UI
   });
 }
 
