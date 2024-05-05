@@ -15,8 +15,16 @@ const weatherDataRequester = (() => {
       return jsonResponse;
     }
   }
+  // TODO: Fetch current weather as well as average conditions for today's weather report
+  // Put them together into an object to report today's weather from processing and parsing what you need from both of them
+  // TODO: The processors must use the innate methods
+  function fetchFutureWeatherByLocation(location) {
+    return tryFetch(
+      `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=7`
+    );
+  }
 
-  function fetchWeatherByLocation(location) {
+  function fetchCurrentWeatherByLocation(location) {
     return tryFetch(
       `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${location}`
     );
@@ -28,7 +36,11 @@ const weatherDataRequester = (() => {
     );
   }
 
-  return { fetchWeatherByLocation, getCitiesStartingWith };
+  return {
+    fetchCurrentWeatherByLocation,
+    fetchFutureWeatherByLocation,
+    getCitiesStartingWith,
+  };
 })();
 
 export default weatherDataRequester;

@@ -1,15 +1,18 @@
 // Gives only relevant data back to program
 let dataProcessor = (function dataProcessor() {
   // Extract required weather data on object
-  const processLocationObject = (object) => {
-    let currentConditions = object.current;
-    let location = object.location;
+  const processWeatherFeedback = (currentWeather, futureWeather) => {
+    let currentConditions = currentWeather.current;
+    let location = currentWeather.location;
 
     let summary = {
       text: currentConditions.condition.text,
       icon: currentConditions.condition.icon,
       temp_c: currentConditions.feelslike_c,
       temp_f: currentConditions.feelslike_f,
+      // TODO: Get data from futureWeather object
+      min_c: futureWeather,
+      min_f: futureWeather,
     };
 
     let simplifiedLocation = {
@@ -35,7 +38,7 @@ let dataProcessor = (function dataProcessor() {
     return arrOfNames;
   };
 
-  return { processLocationArray, processLocationObject };
+  return { processLocationArray, processWeatherFeedback };
 })();
 
 export default dataProcessor;

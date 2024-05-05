@@ -13,12 +13,22 @@ import displayController from "../../ui_controller.js";
 // Can just do it in the click handler as an async function to wait until loading is done but other functions can function
 // You can also control UI in this
 // TODO: Separate this out as it is too long the functionality and store elsewhere, maybe a UI with application data module
+// Method put on listeners
 function listenForUserInput(searchButton, locationInput) {
   const completeWeatherSearchProcedure = async () => {
     loadController.startLoading();
     let location = locationInput.value;
-    let weather = await weatherDataRequester.fetchWeatherByLocation(location);
-    let processedData = dataProcessor.processLocationObject(weather);
+    let currentWeather =
+      await weatherDataRequester.fetchCurrentWeatherByLocation(location);
+    let futureWeather = await weatherDataRequester.fetchFutureWeatherByLocation(
+      location
+    );
+    let processedData = dataProcessor.processWeatherFeedback(
+      currentWeather,
+      futureWeather
+    );
+    /* TODO: Store data as is for processing later from the source without having to make further API calls
+       This prevents call to future weather obtainment from not being made twice for an area */
     // TODO: Get future forecast and display it too
     loadController.stopLoading();
     displayController.displayWeatherDetails(processedData);
