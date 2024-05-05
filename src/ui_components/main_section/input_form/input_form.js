@@ -18,20 +18,17 @@ function listenForUserInput(searchButton, locationInput) {
   const completeWeatherSearchProcedure = async () => {
     loadController.startLoading();
     let location = locationInput.value;
-    let currentWeather =
-      await weatherDataRequester.fetchCurrentWeatherByLocation(location);
     let futureWeather = await weatherDataRequester.fetchFutureWeatherByLocation(
       location
     );
-    let processedData = dataProcessor.processWeatherFeedback(
-      currentWeather,
-      futureWeather
-    );
+    let { processedTodayWeather, processedFutureWeather } =
+      dataProcessor.processWeatherFeedback(futureWeather);
     /* TODO: Store data as is for processing later from the source without having to make further API calls
        This prevents call to future weather obtainment from not being made twice for an area */
+    // TODO: So simply get location weather data and store it. Other functions can use it as they wish in further calls.
     // TODO: Get future forecast and display it too
     loadController.stopLoading();
-    displayController.displayWeatherDetails(processedData);
+    displayController.displayWeatherDetails(futureWeather);
 
     // TODO: Remove loading and show in UI
   };

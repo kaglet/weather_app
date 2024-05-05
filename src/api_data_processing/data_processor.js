@@ -1,9 +1,9 @@
 // Gives only relevant data back to program
 let dataProcessor = (function dataProcessor() {
   // Extract required weather data on object
-  const processWeatherFeedback = (currentWeather, futureWeather) => {
-    let currentConditions = currentWeather.current;
-    let location = currentWeather.location;
+  const processWeatherFeedback = (futureWeather) => {
+    let currentConditions = futureWeather.current;
+    let location = futureWeather.location;
 
     let summary = {
       text: currentConditions.condition.text,
@@ -11,8 +11,10 @@ let dataProcessor = (function dataProcessor() {
       temp_c: currentConditions.feelslike_c,
       temp_f: currentConditions.feelslike_f,
       // TODO: Get data from futureWeather object
-      min_c: futureWeather,
-      min_f: futureWeather,
+      mintemp_c: futureWeather.forecast.forecastday[0].day.mintemp_c,
+      mintemp_f: futureWeather.forecast.forecastday[0].day.mintemp_f,
+      maxtemp_c: futureWeather.forecast.forecastday[0].day.maxtemp_c,
+      maxtemp_f: futureWeather.forecast.forecastday[0].day.maxtemp_f,
     };
 
     let simplifiedLocation = {
@@ -27,7 +29,15 @@ let dataProcessor = (function dataProcessor() {
       humidity: currentConditions.humidity,
     };
 
-    return { summary, extras, simplifiedLocation };
+    // TODO: Use data values that come with object with date fns library to show date
+    let futureForecast = {
+      futureDays: futureWeather.forecast.forecastday,
+    };
+
+    return {
+      current: { summary, extras, simplifiedLocation },
+      future: { futureForecast },
+    };
   };
 
   // Extract required data from array of locations

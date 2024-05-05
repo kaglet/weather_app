@@ -24,12 +24,6 @@ const weatherDataRequester = (() => {
     );
   }
 
-  function fetchCurrentWeatherByLocation(location) {
-    return tryFetch(
-      `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${location}`
-    );
-  }
-
   function getCitiesStartingWith(citySearchString) {
     return tryFetch(
       `http://api.weatherapi.com/v1/search.json?key=${API_KEY}&q=${citySearchString}`
@@ -37,7 +31,6 @@ const weatherDataRequester = (() => {
   }
 
   return {
-    fetchCurrentWeatherByLocation,
     fetchFutureWeatherByLocation,
     getCitiesStartingWith,
   };
