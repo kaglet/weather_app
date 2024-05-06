@@ -1,4 +1,4 @@
-function createInfoCard(condition, minTemp, maxTemp, dayOfWeek) {
+function createMiniInfoCard(condition, minTemp, maxTemp, dayOfWeek) {
   let card = document.createElement("span");
   let pic = document.createElement("div");
   let conditionDisplay = document.createElement("p");
@@ -24,4 +24,4 @@ function createInfoCard(condition, minTemp, maxTemp, dayOfWeek) {
   return card;
 }
 
-export default createInfoCard;
+export default createMiniInfoCard;

@@ -1,4 +1,4 @@
-function createWeatherSummaryCard() {
+function createMoreTodayInfoCard() {
   let wrapper = document.createElement("div");
   wrapper.classList.add("wrapper");
   let weatherIcon = document.createElement("div");
@@ -10,4 +10,4 @@ function createWeatherSummaryCard() {
   return wrapper;
 }
 
-export default createWeatherSummaryCard;
+export default createMoreTodayInfoCard;

@@ -1,23 +1,12 @@
-import createInfoCard from "./info_card/info_card";
-import createWeatherSummaryCard from "./weather_summary_card/weather_summary_card";
-
-function createMoreDetailsCard() {
-  let moreDetailsCard = document.createElement("section");
-  // TODO: For each number of datapoints in decided array get or create a card
-  // Nice to keep it in one place so it is more dynamic
-  let moreInfoExample = createInfoCard();
-  moreInfoExample.textContent = "Example Info";
-  moreDetailsCard.append(moreInfoExample);
-
-  return moreDetailsCard;
-}
+import createMiniInfoCard from "./info_card/info_card";
+import createMoreTodayInfoCard from "./today_more_weather_info_card/weather_summary_card";
 
 function createCurrWeatherCard() {
   let currWeatherCard = document.createElement("section");
   let todayTitle = document.createElement("h2");
   let todayDate = document.createElement("h3");
-  let moreInfo = createMoreDetailsCard();
-  let weatherSummary = createWeatherSummaryCard();
+  let miniCard = createMiniInfoCard();
+  let moreInfo = createMoreTodayInfoCard();
 
   currWeatherCard.classList.add("current", "weather", "card");
 
@@ -25,7 +14,7 @@ function createCurrWeatherCard() {
   let today = new Date();
   todayDate.textContent = today.toDateString();
 
-  currWeatherCard.append(todayTitle, todayDate, weatherSummary, moreInfo);
+  currWeatherCard.append(todayTitle, todayDate, miniCard, moreInfo);
 
   return currWeatherCard;
 }
