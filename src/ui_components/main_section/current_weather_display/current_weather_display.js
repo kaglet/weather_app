@@ -1,11 +1,11 @@
-import createMiniInfoCard from "./info_card/info_card";
+import createMiniInfoCard from "../../info_card/info_card.js";
 import createMoreTodayInfoCard from "./today_more_weather_info_card/weather_summary_card";
 
 function createCurrWeatherCard() {
   let currWeatherCard = document.createElement("section");
   let todayTitle = document.createElement("h2");
   let todayDate = document.createElement("h3");
-  let miniCard = createMiniInfoCard();
+  let miniCard = createMiniInfoCard("cold", "34", "37", "Tuesday");
   let moreInfo = createMoreTodayInfoCard();
 
   currWeatherCard.classList.add("current", "weather", "card");
