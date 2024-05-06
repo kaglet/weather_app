@@ -1,10 +1,12 @@
+import storageManager from "../in_session_storage/in_session_storage";
+
 let displayController = (function () {
-  const displayWeatherDetails = (weather) => {
-    console.log(weather);
+  const displayWeatherDetails = () => {
+    console.log(storageManager.getTodayData());
   };
 
-  const displayFutureWeather = (futureForecast) => {
-    console.log(futureForecast);
+  const displayFutureWeather = () => {
+    console.log(storageManager.getForecastData());
   };
 
   const displayLocations = (locations) => {

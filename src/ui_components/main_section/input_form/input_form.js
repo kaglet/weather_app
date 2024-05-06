@@ -1,5 +1,6 @@
 import dataProcessor from "../../../api_data_processing/data_processor.js";
 import weatherDataRequester from "../../../api_requests/weather.js";
+import storageManager from "../../../in_session_storage/in_session_storage.js";
 import loadController from "../../loading/loading_control.js";
 import displayController from "../../ui_controller.js";
 
@@ -16,8 +17,10 @@ import displayController from "../../ui_controller.js";
 // Method put on listeners
 function listenForUserInput(searchButton, locationInput) {
   const completeWeatherSearchProcedure = async () => {
-    loadController.startLoading();
     let location = locationInput.value;
+    if (location === "") return;
+
+    loadController.startLoading();
     let futureWeather = await weatherDataRequester.fetchFutureWeatherByLocation(
       location
     );
@@ -25,16 +28,20 @@ function listenForUserInput(searchButton, locationInput) {
       dataProcessor.processWeatherFeedback(futureWeather);
     /* TODO: Store data as is for processing later from the source without having to make further API calls
        This prevents call to future weather obtainment from not being made twice for an area */
-    // TODO: So simply get location weather data and store it. Other functions can use it as they wish in further calls.
     // TODO: Get future forecast and display it too
     loadController.stopLoading();
-    displayController.displayWeatherDetails(futureWeather);
+    storageManager.storeForecastData(processedFutureWeather);
+    storageManager.storeTodayData(processedTodayWeather);
+    displayController.displayWeatherDetails(storageManager.getTodayData());
+    displayController.displayFutureWeather(storageManager.getForecastData());
 
     // TODO: Remove loading and show in UI
   };
 
   const completeLocationSearchProcedure = async () => {
     let location = locationInput.value;
+    if (location === "") return;
+
     let locations = await weatherDataRequester.getCitiesStartingWith(location);
     let processedData = dataProcessor.processLocationArray(locations);
     displayController.displayLocations(processedData);
