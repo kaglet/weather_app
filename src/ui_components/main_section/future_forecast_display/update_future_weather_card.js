@@ -1,4 +1,4 @@
-import createMiniInfoCard from "../../info_card/info_card";
+import createMiniInfoCard from "../../info_card/mini_info_card";
 
 function updateFutureWeatherCard() {
   let futureWeatherCard = document.querySelector(".future.weather.card");

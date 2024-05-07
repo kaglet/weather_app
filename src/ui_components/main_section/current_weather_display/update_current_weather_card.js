@@ -1,4 +1,4 @@
-import createMiniInfoCard from "../../info_card/info_card";
+import createMiniInfoCard from "../../info_card/mini_info_card";
 import createMoreTodayInfoCard from "./today_more_weather_info_card/more_today_info";
 
 function updateCurrentWeatherCard() {

@@ -7,7 +7,7 @@ function createMiniInfoCard(condition, minTemp, maxTemp, dayOfWeek) {
   let maxTempDisplay = document.createElement("p");
   let averageTempsWrapper = document.createElement("div");
 
-  card.classList.add("info", "card");
+  card.classList.add("mini", "info", "card");
 
   // TODO: Map background picture based off condition
   pic.classList.add("pic");
