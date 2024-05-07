@@ -4,18 +4,7 @@ import storageManager from "../../../in_session_storage/in_session_storage.js";
 import loadController from "../../loading/loading_control.js";
 import displayController from "../../ui_controller.js";
 
-// Search
-// Get location
-// Tied to input but can be used separately e.g. input by press of enter key
-
-// Nothing that this is doing that is not already done, call the other function if needed, you can wait for this before continuing to call UI changes too
-// Use async function in another async function then
-// The result is that of the promise if no `then` is placed on it
-// Can just do it in the click handler as an async function to wait until loading is done but other functions can function
-// You can also control UI in this
-// TODO: Separate this out as it is too long the functionality and store elsewhere, maybe a UI with application data module
-// Method put on listeners
-function listenForUserInput(searchButton, locationInput) {
+function listenForUserInput(searchButton, locationInput, form) {
   const completeWeatherSearchProcedure = async () => {
     let location = locationInput.value;
     if (location === "") return;
@@ -26,9 +15,7 @@ function listenForUserInput(searchButton, locationInput) {
     );
     let { processedTodayWeather, processedFutureWeather } =
       dataProcessor.processWeatherFeedback(futureWeather);
-    /* TODO: Store data as is for processing later from the source without having to make further API calls
-       This prevents call to future weather obtainment from not being made twice for an area */
-    // TODO: Get future forecast and display it too
+
     loadController.stopLoading();
     storageManager.storeForecastData(processedFutureWeather);
     storageManager.storeTodayData(processedTodayWeather);
@@ -51,6 +38,11 @@ function listenForUserInput(searchButton, locationInput) {
 
   locationInput.addEventListener("input", completeLocationSearchProcedure);
 
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    completeWeatherSearchProcedure();
+  });
+
   // TODO: Add listener on press of enter key
 }
 
@@ -72,13 +64,13 @@ function createInputForm() {
 
   searchButton.textContent = "Search";
   searchButton.append(searchIcon);
-  searchButton.setAttribute("type", "button");
+  searchButton.setAttribute("type", "submit");
   searchIcon.classList.add("search");
 
   wrapper.append(locationLabel, locationInput, searchButton);
   form.append(wrapper);
 
-  listenForUserInput(searchButton, locationInput);
+  listenForUserInput(searchButton, locationInput, form);
 
   return form;
 }
