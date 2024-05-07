@@ -10,18 +10,21 @@ function listenForUserInput(searchButton, locationInput, form) {
     if (location === "") return;
 
     loadController.startLoading();
-    let futureWeather = await weatherDataRequester.fetchFutureWeatherByLocation(
-      location
-    );
-    let { processedTodayWeather, processedFutureWeather } =
-      dataProcessor.processWeatherFeedback(futureWeather);
 
-    loadController.stopLoading();
-    storageManager.storeForecastData(processedFutureWeather);
-    storageManager.storeTodayData(processedTodayWeather);
-    displayController.displayWeatherDetails(storageManager.getTodayData());
-    displayController.displayFutureWeather(storageManager.getForecastData());
+    try {
+      let futureWeather =
+        await weatherDataRequester.fetchFutureWeatherByLocation(location);
+      let { processedTodayWeather, processedFutureWeather } =
+        dataProcessor.processWeatherFeedback(futureWeather);
 
+      loadController.stopLoading();
+      storageManager.storeForecastData(processedFutureWeather);
+      storageManager.storeTodayData(processedTodayWeather);
+      displayController.displayWeatherDetails(storageManager.getTodayData());
+      displayController.displayFutureWeather(storageManager.getForecastData());
+    } catch (error) {
+      console.error(error);
+    }
     // TODO: Remove loading and show in UI
   };
 
