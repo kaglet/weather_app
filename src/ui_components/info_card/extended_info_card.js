@@ -1,9 +1,23 @@
 import createMiniInfoCard from "./mini_info_card";
 
-function createExtendedMiniInfoCard(fullDate) {
-  // For extension, extend a base UI simple card. First create base and add/edit more properties
-  // Note thought that no properties are "added" to a UI component, hence this style of pseudo-extension from a base component created for use is used
-  let card = createMiniInfoCard();
+// For extension, extend a base UI simple card. First create base and add/edit more properties
+// Note thought that no properties are "added" to a UI component, hence this style of pseudo-extension from a base component created for use is used
+
+function createExtendedMiniInfoCard(
+  fullDate,
+  condition,
+  minTemp,
+  maxTemp,
+  dayOfWeek,
+  currentTemp
+) {
+  let card = createMiniInfoCard(
+    condition,
+    minTemp,
+    maxTemp,
+    dayOfWeek,
+    currentTemp
+  );
   card.classList.add("extended");
   card.classList.remove("mini");
 
