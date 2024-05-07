@@ -1,29 +1,10 @@
 import storageManager from "../in_session_storage/in_session_storage";
-import createMiniInfoCard from "./info_card/info_card";
-import createMoreTodayInfoCard from "./main_section/current_weather_display/today_more_weather_info_card/more_today_info";
+import clearCurrentWeatherCard from "./main_section/current_weather_display/clear_current_weather_card";
+import updateCurrentWeatherCard from "./main_section/current_weather_display/update_current_weather_card";
+import clearFutureWeatherCard from "./main_section/future_forecast_display/clear_future_weather_card";
+import updateFutureWeatherCard from "./main_section/future_forecast_display/update_future_weather_card";
 
 let displayController = (function () {
-  const clearCurrentWeatherCard = () => {
-    let currWeatherCard = document.querySelector(".current.weather.card");
-
-    while (currWeatherCard.firstChild) {
-      currWeatherCard.removeChild(currWeatherCard.lastChild);
-    }
-  };
-
-  const updateCurrentWeatherCard = () => {
-    let currWeatherCard = document.querySelector(".current.weather.card");
-    let todayTitle = document.createElement("h2");
-    let todayDate = document.createElement("h3");
-    let miniCard = createMiniInfoCard("cold", "34", "37", "Tuesday");
-    let moreInfo = createMoreTodayInfoCard("high wind", "low uv");
-    todayTitle.textContent = "Today";
-    let today = new Date();
-    todayDate.textContent = today.toDateString();
-
-    currWeatherCard.append(todayTitle, todayDate, miniCard, moreInfo);
-  };
-
   const displayWeatherDetails = () => {
     clearCurrentWeatherCard();
     updateCurrentWeatherCard();
@@ -32,6 +13,9 @@ let displayController = (function () {
   };
 
   const displayFutureWeather = () => {
+    clearFutureWeatherCard();
+    updateFutureWeatherCard();
+
     console.log(storageManager.getForecastData());
   };
 

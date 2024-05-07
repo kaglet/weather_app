@@ -20,12 +20,13 @@ function listenForUserInput(searchButton, locationInput, form) {
       loadController.stopLoading();
       storageManager.storeForecastData(processedFutureWeather);
       storageManager.storeTodayData(processedTodayWeather);
+      // TODO: Remove loading then show in UI
+
       displayController.displayWeatherDetails(storageManager.getTodayData());
       displayController.displayFutureWeather(storageManager.getForecastData());
     } catch (error) {
       console.error(error);
     }
-    // TODO: Remove loading and show in UI
   };
 
   const completeLocationSearchProcedure = async () => {
