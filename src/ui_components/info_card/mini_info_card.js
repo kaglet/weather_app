@@ -1,5 +1,5 @@
 function createMiniInfoCard(condition, minTemp, maxTemp, dayOfWeek) {
-  let card = document.createElement("span");
+  let card = document.createElement("div");
   let pic = document.createElement("div");
   let conditionDisplay = document.createElement("p");
   let dayOfWeekDisplay = document.createElement("p");
