@@ -12,7 +12,8 @@ function updateFutureWeatherCard() {
       futureWeatherArray[i].day.mintemp_c,
       futureWeatherArray[i].day.maxtemp_c,
       format(new Date(futureWeatherArray[i].date), "cccc"),
-      ""
+      "",
+      storageManager.getTodayData().summary.imageURL
     );
 
     futureWeatherCard.append(miniCard);

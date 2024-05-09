@@ -20,6 +20,7 @@
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-family: var(--main-font-family);
   --weather-card-height: 40rem;
+  --light-white: darkcyan;
 }
 
 h1, h2 {
@@ -47,25 +48,50 @@ header {
   justify-content: space-between;
 }
 
-.current.weather.card, .future.weather.card {
+.current.weather.card {
   min-height: var(--weather-card-height);
 }
 
 .current.weather.card {
   padding: 1rem;
-  background-color: rgb(0, 0, 26);
+  background-color: var(--light-white);
   border-radius: 1rem;
   color: white;
 }
 
 .future.weather.card {
   border-top: 6px solid darkcyan;
+  display: flex;
+  align-self: flex-start;
+}
+
+.future.weather.card > .mini.info.card {
+  padding: 1rem;
+}
+
+.future.weather.card > .mini.info.card:nth-child(n) {
+  margin-top: 1rem;
+  flex: 1;
+}
+
+.future.weather.card > .mini.info.card:first-child {
+  border-right: 6px solid var(--light-white);
+}
+
+.future.weather.card > .mini.info.card:last-child {
+  border-left: 6px solid var(--light-white);
 }
 
 section.main {
   display: grid;
   grid-template: auto 1fr / 2fr 5fr;
   gap: 2rem;
+}
+
+.card > div.pic {
+  background-color: greenyellow;
+  width: 17rem;
+  height: 17rem;
 }
 
 form {

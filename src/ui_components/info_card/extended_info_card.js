@@ -9,14 +9,16 @@ function createExtendedMiniInfoCard(
   minTemp,
   maxTemp,
   dayOfWeek,
-  currentTemp
+  currentTemp,
+  imgURL
 ) {
   let card = createMiniInfoCard(
     condition,
     minTemp,
     maxTemp,
     dayOfWeek,
-    currentTemp
+    currentTemp,
+    imgURL
   );
   card.classList.add("extended");
   card.classList.remove("mini");

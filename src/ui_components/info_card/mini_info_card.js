@@ -3,7 +3,8 @@ function createMiniInfoCard(
   minTemp,
   maxTemp,
   dayOfWeek,
-  currentTemp
+  currentTemp,
+  imgURL
 ) {
   let card = document.createElement("div");
   let pic = document.createElement("div");
@@ -19,7 +20,7 @@ function createMiniInfoCard(
 
   // TODO: Map background picture based off condition
   pic.classList.add("pic");
-  pic.style.backgroundImage = "";
+  pic.style.backgroundImage = `url(${imgURL})`;
   conditionDisplay.textContent = condition;
   minTempDisplay.textContent = minTemp;
   maxTempDisplay.textContent = maxTemp;

@@ -12,7 +12,8 @@ function updateCurrentWeatherCard() {
     storageManager.getTodayData().summary.mintemp_c,
     storageManager.getTodayData().summary.maxtemp_c,
     format(new Date(), "cccc"),
-    storageManager.getTodayData().summary.temp_c
+    storageManager.getTodayData().summary.temp_c,
+    storageManager.getTodayData().summary.imageURL
   );
   let moreInfo = createMoreTodayInfoCard(
     storageManager.getTodayData().extras.wind_kph,
