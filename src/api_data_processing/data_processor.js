@@ -2,6 +2,17 @@ import iconRetriever from "../weather_conditions/icon_retriever.js";
 
 // Gives only relevant data back to program
 let dataProcessor = (function dataProcessor() {
+  // TODO: Create different summary objects and display cards because one needs a current temperature and the other doesn't
+  // They can extend from the same base perhaps is my solution both for this and the card where I have a blank parameter passed through
+  const createSummaryObject = (
+    text,
+    code,
+    temp_c,
+    temp_f,
+    mintemp_c,
+    mintemp_f
+  ) => {};
+
   // Extract required weather data on object
   const processWeatherFeedback = (futureWeather) => {
     let currentConditions = futureWeather.current;

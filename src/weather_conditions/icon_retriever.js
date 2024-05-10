@@ -1,3 +1,4 @@
+import { dayImages, nightImages } from "../dynamic_imports/dynamic_imports";
 import weatherConditions from "./weather_conditions";
 
 let iconRetriever = (function iconRetriever() {
@@ -13,14 +14,31 @@ let iconRetriever = (function iconRetriever() {
   const mapCodeToIcon = (code) => {
     let iconNumber = weatherConditions.find((obj) => obj.code === code).icon;
 
-    return iconNumber;
+    return +iconNumber;
   };
 
-  const getIcon = async (code) => {
+  const searchForIcon = (iconNumber, timeString) => {
+    let completePath;
+    if (timeString === "day") {
+      completePath = dayImages.find(
+        (image) => image.number === iconNumber
+      ).imageURL;
+    } else {
+      completePath = nightImages.find(
+        (image) => image.number === iconNumber
+      ).imageURL;
+    }
+
+    return completePath;
+  };
+
+  const getIcon = (code) => {
     let timeString = decideDayNightVersion();
     let iconNumber = mapCodeToIcon(code);
-    let incompletePath = "./src/assets/weather_icons/";
-    let completePath = incompletePath + timeString + "/" + iconNumber + ".png";
+    let completePath = searchForIcon(iconNumber, timeString);
+
+    console.log("Day images", dayImages);
+    console.log("Night images", nightImages);
 
     return completePath;
   };
