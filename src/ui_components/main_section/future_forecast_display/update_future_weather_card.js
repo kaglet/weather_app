@@ -8,15 +8,15 @@ function updateFutureWeatherCard() {
 
   for (let i = 1; i < 4; i++) {
     let miniCard = createMiniInfoCard(
-      futureWeatherArray[i].day.condition.text,
-      futureWeatherArray[i].day.mintemp_c,
-      futureWeatherArray[i].day.maxtemp_c,
+      futureWeatherArray[i].text,
+      futureWeatherArray[i].mintemp_c,
+      futureWeatherArray[i].maxtemp_c,
       format(new Date(futureWeatherArray[i].date), "cccc"),
       "",
       // TODO: Give image url to future data, should be an extra custom property, or have today object data on each day with this guaranteed
       // SHould be an innate property not one that is transformed here
       // Do when saving future data, transform it as well not just for current day
-      storageManager.getTodayData().summary.imageURL
+      futureWeatherArray[i].imageURL
     );
 
     futureWeatherCard.append(miniCard);

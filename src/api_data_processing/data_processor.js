@@ -1,4 +1,4 @@
-import weatherSummary from "./create_summary_object.js";
+import futureDayWeatherSummary from "./create_future_summary.js";
 import todayWeatherSummary from "./create_today_summary.js";
 
 // Gives only relevant data back to program
@@ -34,7 +34,18 @@ let dataProcessor = (function dataProcessor() {
       humidity: currentConditions.humidity,
     };
 
-    let processedFutureWeather = futureWeather.forecast.forecastday;
+    let processedFutureWeather = futureWeather.forecast.forecastday.map(
+      (dayData) =>
+        new futureDayWeatherSummary(
+          dayData.day.condition.text,
+          dayData.day.condition.code,
+          dayData.day.mintemp_c,
+          dayData.day.mintemp_f,
+          dayData.day.maxtemp_c,
+          dayData.day.maxtemp_f,
+          dayData.date
+        )
+    );
 
     let processedTodayWeather = {
       summary,
