@@ -1,5 +1,6 @@
 import weatherSummary from "./create_summary_object";
 
+// Class with getter/setter methods for ease of access of properties - a factory function could have been used with prototypal inheritance
 class todayWeatherSummary extends weatherSummary {
   #temp_c;
   #temp_f;

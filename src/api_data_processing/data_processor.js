@@ -1,36 +1,26 @@
-import iconRetriever from "../weather_conditions/icon_retriever.js";
+import weatherSummary from "./create_summary_object.js";
+import todayWeatherSummary from "./create_today_summary.js";
 
 // Gives only relevant data back to program
 let dataProcessor = (function dataProcessor() {
   // TODO: Create different summary objects and display cards because one needs a current temperature and the other doesn't
   // They can extend from the same base perhaps is my solution both for this and the card where I have a blank parameter passed through
-  const createSummaryObject = (
-    text,
-    code,
-    temp_c,
-    temp_f,
-    mintemp_c,
-    mintemp_f
-  ) => {};
 
   // Extract required weather data on object
   const processWeatherFeedback = (futureWeather) => {
     let currentConditions = futureWeather.current;
     let location = futureWeather.location;
-    let imageURL = iconRetriever.getIcon(currentConditions.condition.code);
 
-    let summary = {
-      text: currentConditions.condition.text,
-      code: currentConditions.condition.code,
-      imageURL,
-      temp_c: currentConditions.feelslike_c,
-      temp_f: currentConditions.feelslike_f,
-      // TODO: Get data from futureWeather object
-      mintemp_c: futureWeather.forecast.forecastday[0].day.mintemp_c,
-      mintemp_f: futureWeather.forecast.forecastday[0].day.mintemp_f,
-      maxtemp_c: futureWeather.forecast.forecastday[0].day.maxtemp_c,
-      maxtemp_f: futureWeather.forecast.forecastday[0].day.maxtemp_f,
-    };
+    let summary = new todayWeatherSummary(
+      currentConditions.condition.text,
+      currentConditions.condition.code,
+      currentConditions.feelslike_c,
+      currentConditions.feelslike_f,
+      futureWeather.forecast.forecastday[0].day.mintemp_c,
+      futureWeather.forecast.forecastday[0].day.mintemp_f,
+      futureWeather.forecast.forecastday[0].day.maxtemp_c,
+      futureWeather.forecast.forecastday[0].day.maxtemp_f
+    );
 
     let simplifiedLocation = {
       name: location.name,
