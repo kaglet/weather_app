@@ -20,7 +20,10 @@
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-family: var(--main-font-family);
   --weather-card-height: 40rem;
-  --light-white: darkcyan;
+  --background-secondary: rgb(218, 218, 218);
+  --mini-card-padding: 1rem;
+  --box-shadow-outset: 3px 3px 8px 1px rgb(147, 147, 147);
+  --text-shadow-inset: 2px 2px 5px rgb(147, 147, 147);
 }
 
 h1, h2 {
@@ -32,11 +35,12 @@ section, div, p {
 }
 
 body {
-  min-height: 100vh;
-  padding: 0.5rem 2rem;
+  height: 100vh;
+  padding: 0.5rem 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  background-color: rgb(202, 202, 202);
 }
 
 input, button {
@@ -50,48 +54,88 @@ header {
 
 .current.weather.card {
   min-height: var(--weather-card-height);
+  padding: var(--mini-card-padding);
+  background-color: var(--background-secondary);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--box-shadow-outset);
 }
 
-.current.weather.card {
-  padding: 1rem;
-  background-color: var(--light-white);
-  border-radius: 1rem;
+.current.weather.card div, .current.weather.card p, .future.weather.card div, .future.weather.card p, h2, h3 {
+  text-shadow: var(--text-shadow-inset);
+}
+
+.current.weather.card, .future.weather.card {
   color: white;
 }
 
 .future.weather.card {
-  border-top: 6px solid darkcyan;
-  display: flex;
+  border-top: 6px solid var(--background-secondary);
+  display: grid;
+  grid-template: 1fr / repeat(3, 1fr);
+  grid-auto-flow: row;
+  grid-auto-rows: 1fr;
   align-self: flex-start;
+  gap: 1rem;
 }
 
-.future.weather.card > .mini.info.card {
-  padding: 1rem;
+.mini.info.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: var(--mini-card-padding);
 }
 
-.future.weather.card > .mini.info.card:nth-child(n) {
-  margin-top: 1rem;
+.current.weather.card .mini.info.card {
+  align-self: stretch;
+}
+
+/* .mini.info.card {
+  display: grid;
+} */
+
+.min-max.wrapper {
+  display: flex;
+  align-self: stretch;
+}
+
+.min-max.wrapper > :nth-child(n) {
+  flex: 1000;
+  text-align: center;
+}
+
+.min-max.wrapper > :nth-child(2) {
   flex: 1;
 }
 
-.future.weather.card > .mini.info.card:first-child {
-  border-right: 6px solid var(--light-white);
-}
-
-.future.weather.card > .mini.info.card:last-child {
-  border-left: 6px solid var(--light-white);
+.future.weather.card > .mini.info.card {
+  margin-top: 1rem;
+  flex: 1;
+  background-color: var(--background-secondary);
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow-outset);
 }
 
 section.main {
   display: grid;
   grid-template: auto 1fr / 2fr 5fr;
   gap: 2rem;
+  flex: 1;
 }
 
 .card > div.pic {
-  background-color: greenyellow;
-  width: 17rem;
-  height: 17rem;
+  background-color: transparent;
+  width: 9rem;
+  height: 9rem;
+}
+
+.pic {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* filter: brightness(0) saturate(0%) invert(100%); */
 }
 
 form {
@@ -107,4 +151,12 @@ form > div {
 
 button, input[type="search"] {
   padding: 0.3rem;
+}
+
+.more.today.info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: row;
+  grid-auto-rows: 1fr;
+  margin-top: auto;
 }

@@ -14,6 +14,7 @@ function listenForUserInput(searchButton, locationInput, form) {
     try {
       let futureWeather =
         await weatherDataRequester.fetchFutureWeatherByLocation(location);
+      console.log(futureWeather);
       let { processedTodayWeather, processedFutureWeather } =
         dataProcessor.processWeatherFeedback(futureWeather);
 

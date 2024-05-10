@@ -1,21 +1,20 @@
 import storageManager from "../../../in_session_storage/in_session_storage";
-import createMiniInfoCard from "../../info_card/mini_info_card";
+import createFutureMiniInfoCard from "../../info_card/future_mini_info_card";
 import { format } from "date-fns";
 
+// TODO: Create a base card that you extend further like you already did with the current cards - for future vs current summary card
+// This is to fix the card where I have a blank parameter passed through, because one needs a current temperature and the other doesn't
+// This goes in conjunction with the summary objects
 function updateFutureWeatherCard() {
   let futureWeatherCard = document.querySelector(".future.weather.card");
   let futureWeatherArray = storageManager.getForecastData();
 
-  for (let i = 1; i < 4; i++) {
-    let miniCard = createMiniInfoCard(
+  for (let i = 1; i < 8; i++) {
+    let miniCard = createFutureMiniInfoCard(
       futureWeatherArray[i].text,
       futureWeatherArray[i].mintemp_c,
       futureWeatherArray[i].maxtemp_c,
       format(new Date(futureWeatherArray[i].date), "cccc"),
-      "",
-      // TODO: Give image url to future data, should be an extra custom property, or have today object data on each day with this guaranteed
-      // SHould be an innate property not one that is transformed here
-      // Do when saving future data, transform it as well not just for current day
       futureWeatherArray[i].imageURL
     );
 

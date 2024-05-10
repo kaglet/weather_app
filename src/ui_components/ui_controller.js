@@ -8,15 +8,11 @@ let displayController = (function () {
   const displayWeatherDetails = () => {
     clearCurrentWeatherCard();
     updateCurrentWeatherCard();
-
-    console.log(storageManager.getTodayData());
   };
 
   const displayFutureWeather = () => {
     clearFutureWeatherCard();
     updateFutureWeatherCard();
-
-    console.log(storageManager.getForecastData());
   };
 
   const displayLocations = (locations) => {

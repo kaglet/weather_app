@@ -37,9 +37,6 @@ let iconRetriever = (function iconRetriever() {
     let iconNumber = mapCodeToIcon(code);
     let completePath = searchForIcon(iconNumber, timeString);
 
-    console.log("Day images", dayImages);
-    console.log("Night images", nightImages);
-
     return completePath;
   };
 

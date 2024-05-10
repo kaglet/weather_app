@@ -11,7 +11,6 @@ const weatherDataRequester = (() => {
       return Promise.reject(response);
     } else {
       let jsonResponse = await response.json();
-      console.log(`Initial json response:`, jsonResponse);
       return jsonResponse;
     }
   }

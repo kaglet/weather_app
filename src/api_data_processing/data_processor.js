@@ -1,11 +1,8 @@
 import futureDayWeatherSummary from "./create_future_summary.js";
 import todayWeatherSummary from "./create_today_summary.js";
 
-// Gives only relevant data back to program
+// Gives only relevant data back in a relevant unified, reusable format for the program
 let dataProcessor = (function dataProcessor() {
-  // TODO: Create different summary objects and display cards because one needs a current temperature and the other doesn't
-  // They can extend from the same base perhaps is my solution both for this and the card where I have a blank parameter passed through
-
   // Extract required weather data on object
   const processWeatherFeedback = (futureWeather) => {
     let currentConditions = futureWeather.current;
@@ -32,6 +29,7 @@ let dataProcessor = (function dataProcessor() {
       wind_kph: currentConditions.wind_kph,
       wind_mph: currentConditions.wind_mph,
       humidity: currentConditions.humidity,
+      uv: currentConditions.uv,
     };
 
     let processedFutureWeather = futureWeather.forecast.forecastday.map(
