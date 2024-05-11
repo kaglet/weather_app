@@ -8,7 +8,6 @@ function createExtendedMiniInfoCard(
   condition,
   minTemp,
   maxTemp,
-  dayOfWeek,
   currentTemp,
   imgURL
 ) {
@@ -16,7 +15,6 @@ function createExtendedMiniInfoCard(
     condition,
     minTemp,
     maxTemp,
-    dayOfWeek,
     currentTemp,
     imgURL
   );

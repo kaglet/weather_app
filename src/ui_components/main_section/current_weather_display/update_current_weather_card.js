@@ -1,7 +1,6 @@
 import storageManager from "../../../in_session_storage/in_session_storage";
 import createCurrentMiniInfoCard from "../../info_card/current_mini_info_card";
 import createMoreTodayInfoCard from "./today_more_weather_info_card/more_today_info";
-import { format } from "date-fns";
 
 function updateCurrentWeatherCard() {
   let currWeatherCard = document.querySelector(".current.weather.card");
@@ -11,7 +10,6 @@ function updateCurrentWeatherCard() {
     storageManager.getTodayData().summary.text,
     storageManager.getTodayData().summary.mintemp_c,
     storageManager.getTodayData().summary.maxtemp_c,
-    format(new Date(), "cccc"),
     storageManager.getTodayData().summary.temp_c,
     storageManager.getTodayData().summary.imageURL
   );

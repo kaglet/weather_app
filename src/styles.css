@@ -1,5 +1,4 @@
 /* Template code is for testing and example import purposes */
-
 @font-face {
   font-family: bahianita; 
   src: url(./assets/fonts/Bahianita/Bahianita-Regular.ttf);
@@ -17,12 +16,13 @@
 
 :root {
   --primary-text-clr: rgb(0, 65, 81);
+  --secondary-text-clr: white;
   --main-font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-family: var(--main-font-family);
   --weather-card-height: 40rem;
-  --background-secondary: rgb(0, 111, 139);
-  --background-primary: rgb(0, 73, 92);
+  --background-secondary: rgb(173, 206, 214);
+  --background-primary: rgb(48, 66, 70);
   --mini-card-padding: 1rem;
   --box-shadow-outset: 3px 3px 8px 1px rgb(0, 31, 34);
   --heading-text-shadow-inset: 2px 2px 5px rgb(27, 27, 27);
@@ -79,7 +79,7 @@ header {
 
 .day-of-week, h2.today, h3.today {
   text-shadow: var(--heading-text-shadow-inset);
-  color: var(--background-secondary);
+  color: var(--secondary-text-clr);
 }
 
 .current.weather.card, .future.weather.card {
@@ -107,8 +107,7 @@ header {
 }
 
 .min-max.wrapper {
-  display: flex;
-  align-self: stretch;
+  align-self: center;
 }
 
 .min-max.wrapper > :nth-child(n) {
@@ -158,12 +157,12 @@ form > div {
   gap: 1rem;
 }
 
-input, button {
+input {
   color: var(--primary-text-clr);
 }
 
 header, label, button {
-  color: black;
+  color: var(--secondary-text-clr);
   text-shadow: var(--heading-text-shadow-inset);
 }
 
