@@ -16,15 +16,17 @@
 }
 
 :root {
+  --primary-text-clr: white;
   --main-font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-family: var(--main-font-family);
   --weather-card-height: 40rem;
-  --background-secondary: rgb(1, 188, 205);
+  --background-secondary: rgb(0, 111, 139);
+  --background-primary: rgb(0, 73, 92);
   --mini-card-padding: 1rem;
-  --box-shadow-outset: 3px 3px 8px 1px rgb(0, 100, 109);
-  --heading-text-shadow-inset: 2px 2px 5px rgb(76, 76, 76);
-  --text-shadow: 2px 2px 3px rgb(76, 76, 76);
+  --box-shadow-outset: 3px 3px 8px 1px rgb(0, 31, 34);
+  --heading-text-shadow-inset: 2px 2px 5px rgb(27, 27, 27);
+  --text-shadow: 2px 2px 3px rgb(27, 27, 27);
   --border-rad-medium: 1rem;
 }
 
@@ -42,7 +44,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  background-color: rgb(21, 140, 161);
+  background-color: var(--background-primary);
 }
 
 input, button {
@@ -159,7 +161,7 @@ form > div {
 }
 
 header, input, label, button {
-  color: rgb(0, 55, 55);
+  color: var(--primary-text-clr);
 }
 
 .more.today.info {
