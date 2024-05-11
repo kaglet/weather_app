@@ -20,10 +20,12 @@
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-family: var(--main-font-family);
   --weather-card-height: 40rem;
-  --background-secondary: rgb(218, 218, 218);
+  --background-secondary: rgb(1, 188, 205);
   --mini-card-padding: 1rem;
-  --box-shadow-outset: 3px 3px 8px 1px rgb(147, 147, 147);
-  --text-shadow-inset: 2px 2px 5px rgb(147, 147, 147);
+  --box-shadow-outset: 3px 3px 8px 1px rgb(0, 100, 109);
+  --heading-text-shadow-inset: 2px 2px 5px rgb(76, 76, 76);
+  --text-shadow: 2px 2px 3px rgb(76, 76, 76);
+  --border-rad-medium: 1rem;
 }
 
 h1, h2 {
@@ -40,44 +42,56 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  background-color: rgb(202, 202, 202);
+  background-color: rgb(21, 140, 161);
 }
 
 input, button {
   font: inherit;
+  padding: 0.3rem 1rem;
+  appearance: none;
+  outline: none;
+  border: none;
+  border-radius: 1.5rem;
+}
+
+button {
+  background-color: rgb(0, 111, 139);
 }
 
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .current.weather.card {
   min-height: var(--weather-card-height);
   padding: var(--mini-card-padding);
   background-color: var(--background-secondary);
-  border-radius: 1rem;
+  border-radius: var(--border-rad-medium);
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: var(--box-shadow-outset);
 }
 
-.current.weather.card div, .current.weather.card p, .future.weather.card div, .future.weather.card p, h2, h3 {
-  text-shadow: var(--text-shadow-inset);
+h2, h3 {
+  text-shadow: var(--heading-text-shadow-inset);
+}
+
+.current.weather.card div, .current.weather.card p, .future.weather.card div, .future.weather.card p {
+  text-shadow: var(--text-shadow);
 }
 
 .current.weather.card, .future.weather.card {
-  color: white;
+  color: var(--background-secondary);
 }
 
 .future.weather.card {
-  border-top: 6px solid var(--background-secondary);
   display: grid;
   grid-template: 1fr / repeat(3, 1fr);
   grid-auto-flow: row;
   grid-auto-rows: 1fr;
-  align-self: flex-start;
   gap: 1rem;
 }
 
@@ -91,10 +105,6 @@ header {
 .current.weather.card .mini.info.card {
   align-self: stretch;
 }
-
-/* .mini.info.card {
-  display: grid;
-} */
 
 .min-max.wrapper {
   display: flex;
@@ -111,10 +121,9 @@ header {
 }
 
 .future.weather.card > .mini.info.card {
-  margin-top: 1rem;
   flex: 1;
   background-color: var(--background-secondary);
-  border-radius: 1rem;
+  border-radius: var(--border-rad-medium);
   box-shadow: var(--box-shadow-outset);
 }
 
@@ -149,8 +158,8 @@ form > div {
   gap: 1rem;
 }
 
-button, input[type="search"] {
-  padding: 0.3rem;
+header, input, label, button {
+  color: rgb(0, 55, 55);
 }
 
 .more.today.info {
