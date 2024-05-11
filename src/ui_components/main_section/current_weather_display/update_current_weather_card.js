@@ -21,8 +21,10 @@ function updateCurrentWeatherCard() {
     storageManager.getTodayData().extras.uv
   );
   todayTitle.textContent = "Today";
+  todayTitle.classList.add("today");
   let today = new Date();
   todayDate.textContent = today.toDateString();
+  todayDate.classList.add("today");
 
   currWeatherCard.append(todayTitle, todayDate, miniCard, moreInfo);
 }

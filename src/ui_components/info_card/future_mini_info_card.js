@@ -12,6 +12,7 @@ function createFutureMiniInfoCard(
   let pic = card.querySelector("div.pic");
 
   dayOfWeekDisplay.textContent = dayOfWeek;
+  dayOfWeekDisplay.classList.add("day-of-week");
 
   card.insertBefore(dayOfWeekDisplay, pic);
 

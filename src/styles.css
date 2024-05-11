@@ -16,7 +16,7 @@
 }
 
 :root {
-  --primary-text-clr: white;
+  --primary-text-clr: rgb(0, 65, 81);
   --main-font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-family: var(--main-font-family);
@@ -77,16 +77,14 @@ header {
   box-shadow: var(--box-shadow-outset);
 }
 
-h2, h3 {
+.day-of-week, h2.today, h3.today {
   text-shadow: var(--heading-text-shadow-inset);
-}
-
-.current.weather.card div, .current.weather.card p, .future.weather.card div, .future.weather.card p {
-  text-shadow: var(--text-shadow);
+  color: var(--background-secondary);
 }
 
 .current.weather.card, .future.weather.card {
-  color: var(--background-secondary);
+  color: var(--primary-text-clr);
+  font-weight: bold;
 }
 
 .future.weather.card {
@@ -160,8 +158,17 @@ form > div {
   gap: 1rem;
 }
 
-header, input, label, button {
+input, button {
   color: var(--primary-text-clr);
+}
+
+header, label, button {
+  color: black;
+  text-shadow: var(--heading-text-shadow-inset);
+}
+
+button {
+  box-shadow: var(--box-shadow-outset);
 }
 
 .more.today.info {
