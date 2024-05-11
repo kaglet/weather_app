@@ -8,7 +8,7 @@ function createFutureMiniInfoCard(
   imgURL
 ) {
   let card = createMiniInfoCard(condition, minTemp, maxTemp, imgURL);
-  let dayOfWeekDisplay = document.createElement("p");
+  let dayOfWeekDisplay = document.createElement("h3");
   let pic = card.querySelector("div.pic");
 
   dayOfWeekDisplay.textContent = dayOfWeek;

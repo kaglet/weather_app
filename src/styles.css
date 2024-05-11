@@ -6,6 +6,35 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: inter; 
+  src: url(./assets/fonts/Inter/static/Inter-Regular.ttf);
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: playfair; 
+  src: url(./assets/fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf);
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: roboto-slab; 
+  src: url(./assets/fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf);
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: ubuntu; 
+  src: url(./assets/fonts/Ubuntu/Ubuntu-Bold.ttf);
+  font-weight: 600;
+  font-style: normal;
+}
+
+
 *,
 *::before,
 *::after {
@@ -15,23 +44,44 @@
 }
 
 :root {
-  --primary-text-clr: rgb(207, 207, 207);
+  --primary-text-clr: rgb(226, 226, 226);
   --secondary-text-clr: white;
-  --main-font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+  --main-font-family: inter, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-family: var(--main-font-family);
   --weather-card-height: 40rem;
-  --background-secondary: rgb(63, 63, 63);
+  --background-secondary: rgb(48, 48, 48);
   --background-primary: rgb(34, 34, 34);
   --mini-card-padding: 1rem;
-  --box-shadow-outset: 3px 3px 8px 1px rgb(20, 20, 20);
-  --heading-text-shadow-inset: 2px 2px 5px rgb(27, 27, 27);
-  --text-shadow: 2px 2px 3px rgb(27, 27, 27);
+  --box-shadow-outset: 3px 3px 8px 1px rgb(10, 10, 10);
+  --heading-text-shadow-inset: 2px 2px 5px rgb(0, 0, 0);
+  --text-shadow: 2px 2px 3px rgb(0, 0, 0);
   --border-rad-medium: 1rem;
 }
 
-h1, h2 {
+h1 {
+  font-family: ubuntu;
+  font-size: 5rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+h1 span {
+  display: grid;
+  place-content: center;
+}
+
+h1 span svg {
+  width: 5rem;
+  height: 5rem;
+}
+
+h2 {
   font-size: 4rem;
+}
+
+h2, h3, label {
+  font-family: roboto-slab;
 }
 
 section, div, p {
@@ -77,9 +127,13 @@ header {
   box-shadow: var(--box-shadow-outset);
 }
 
-.day-of-week, h2.today, h3.today {
+.day-of-week, h2.today, h3.today, header {
   text-shadow: var(--heading-text-shadow-inset);
   color: var(--secondary-text-clr);
+}
+
+p, div {
+  text-shadow: var(--text-shadow);
 }
 
 .current.weather.card, .future.weather.card {
@@ -108,15 +162,12 @@ header {
 
 .min-max.wrapper {
   align-self: center;
+  display: flex;
+  gap: 0.75rem;
 }
 
 .min-max.wrapper > :nth-child(n) {
-  flex: 1000;
   text-align: center;
-}
-
-.min-max.wrapper > :nth-child(2) {
-  flex: 1;
 }
 
 .future.weather.card > .mini.info.card {
@@ -176,4 +227,5 @@ button {
   grid-auto-flow: row;
   grid-auto-rows: 1fr;
   margin-top: auto;
+  gap: 0.8rem;
 }
