@@ -15,16 +15,16 @@
 }
 
 :root {
-  --primary-text-clr: rgb(0, 65, 81);
+  --primary-text-clr: rgb(207, 207, 207);
   --secondary-text-clr: white;
   --main-font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-family: var(--main-font-family);
   --weather-card-height: 40rem;
-  --background-secondary: rgb(173, 206, 214);
-  --background-primary: rgb(48, 66, 70);
+  --background-secondary: rgb(63, 63, 63);
+  --background-primary: rgb(34, 34, 34);
   --mini-card-padding: 1rem;
-  --box-shadow-outset: 3px 3px 8px 1px rgb(0, 31, 34);
+  --box-shadow-outset: 3px 3px 8px 1px rgb(20, 20, 20);
   --heading-text-shadow-inset: 2px 2px 5px rgb(27, 27, 27);
   --text-shadow: 2px 2px 3px rgb(27, 27, 27);
   --border-rad-medium: 1rem;
