@@ -1,4 +1,3 @@
-import storageManager from "../in_session_storage/in_session_storage";
 import clearCurrentWeatherCard from "./main_section/current_weather_display/clear_current_weather_card";
 import updateCurrentWeatherCard from "./main_section/current_weather_display/update_current_weather_card";
 import clearFutureWeatherCard from "./main_section/future_forecast_display/clear_future_weather_card";

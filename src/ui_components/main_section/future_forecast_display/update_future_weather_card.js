@@ -9,7 +9,7 @@ function updateFutureWeatherCard() {
   let futureWeatherCard = document.querySelector(".future.weather.card");
   let futureWeatherArray = storageManager.getForecastData();
 
-  for (let i = 1; i < 8; i++) {
+  for (let i = 1; i < 7; i++) {
     let miniCard = createFutureMiniInfoCard(
       futureWeatherArray[i].text,
       futureWeatherArray[i].mintemp_c,

@@ -3,13 +3,18 @@ import weatherDataRequester from "../../../api_requests/weather.js";
 import storageManager from "../../../in_session_storage/in_session_storage.js";
 import loadController from "../../loading/loading_control.js";
 import displayController from "../../ui_controller.js";
+import clearCurrentWeatherCard from "../current_weather_display/clear_current_weather_card.js";
+import clearFutureWeatherCard from "../future_forecast_display/clear_future_weather_card.js";
 
 function listenForUserInput(searchButton, locationInput, form) {
   const completeWeatherSearchProcedure = async () => {
     let location = locationInput.value;
+    let loadingParent = document.querySelector(".current.weather.card");
     if (location === "") return;
 
-    loadController.startLoading();
+    clearCurrentWeatherCard();
+    clearFutureWeatherCard();
+    loadController.startLoading(loadingParent);
 
     try {
       let futureWeather =
@@ -18,7 +23,7 @@ function listenForUserInput(searchButton, locationInput, form) {
       let { processedTodayWeather, processedFutureWeather } =
         dataProcessor.processWeatherFeedback(futureWeather);
 
-      loadController.stopLoading();
+      loadController.stopLoading(loadingParent);
       storageManager.storeForecastData(processedFutureWeather);
       storageManager.storeTodayData(processedTodayWeather);
       // TODO: Remove loading then show in UI
