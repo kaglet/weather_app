@@ -14,6 +14,13 @@
 }
 
 @font-face {
+  font-family: nunito; 
+  src: url(./assets/fonts/Nunito/static/Nunito-Regular.ttf);
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
   font-family: playfair; 
   src: url(./assets/fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf);
   font-weight: 600;
@@ -47,7 +54,7 @@
   font-family: var(--main-font-family);
   --primary-text-clr: rgb(226, 226, 226);
   --secondary-text-clr: white;
-  --main-font-family: inter, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+  --main-font-family: nunito, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-family: var(--main-font-family);
   --weather-card-height: 40rem;
@@ -83,6 +90,10 @@ h2 {
 
 h2, h3, label {
   font-family: roboto-slab;
+}
+
+h3 {
+  text-align: center;
 }
 
 section, div, p {
@@ -238,8 +249,9 @@ button {
   grid-auto-flow: row;
   grid-auto-rows: 1fr;
   align-items: center;
-  margin-top: auto;
+  padding: 2rem 0;
   gap: 0.2rem;
+  border-top: 2px solid rgb(220, 220, 220, 0.1);
 }
 
 .more.today.info > span, .more.today.info > label {
