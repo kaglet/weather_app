@@ -438,3 +438,7 @@ footer a {
 footer a:hover {
   color: var(--accent-clr-lighter);
 }
+
+.location.display {
+  text-align: center;
+}
