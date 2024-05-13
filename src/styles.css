@@ -58,7 +58,7 @@
   --main-font-family: nunito, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-family: var(--main-font-family);
-  --weather-card-height: 40rem;
+  --weather-card-height: 30rem;
   --background-secondary: rgb(48, 48, 48);
   --background-primary: rgb(34, 34, 34);
   --mini-card-padding: 1rem;
@@ -69,11 +69,11 @@
 }
 
 header h1 {
-  font-size: 4.0rem;
+  font-size: 3.7rem;
 }
 
 header svg {
-  font-size: 3.3rem;
+  font-size: 2.9rem;
   color: white;
   transition: all 0.2s ease-in-out;
 }
@@ -104,7 +104,7 @@ h1 span svg {
 }
 
 h2 {
-  font-size: 3.1rem;
+  font-size: 2.7rem;
 }
 
 h2, h3, label {
@@ -116,7 +116,7 @@ h3 {
 }
 
 section, div, p {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
 
 body {
@@ -228,7 +228,7 @@ section.main {
   display: grid;
   grid-template: auto 1fr / 2fr 5fr;
   gap: 2rem;
-  margin-bottom: 2.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .card > div.pic {
@@ -280,7 +280,7 @@ button {
 }
 
 label {
-  font-size: 1.7rem;
+  font-size: 1.4rem;
 }
 
 .more.today.info > span, .more.today.info > label {
@@ -414,7 +414,7 @@ form > div {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   text-shadow: none;
 }
 
@@ -427,7 +427,7 @@ form > div {
 }
 
 .top-details.wrapper > .location {
-  font-size: 1.4rem;
+  font-size: 1.225rem;
 }
 
 footer {
