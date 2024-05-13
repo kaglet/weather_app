@@ -58,7 +58,7 @@
   --main-font-family: nunito, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-family: var(--main-font-family);
-  --weather-card-height: 34.5rem;
+  --weather-card-height: 33rem;
   --background-secondary: rgb(48, 48, 48);
   --background-primary: rgb(34, 34, 34);
   --mini-card-padding: 1rem;
