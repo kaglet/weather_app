@@ -69,11 +69,11 @@
 }
 
 header h1 {
-  font-size: 3.7rem;
+  font-size: 3.3rem;
 }
 
 header svg {
-  font-size: 2.9rem;
+  font-size: 2.3rem;
   color: white;
   transition: all 0.2s ease-in-out;
 }
@@ -104,7 +104,7 @@ h1 span svg {
 }
 
 h2 {
-  font-size: 2.7rem;
+  font-size: 2.4rem;
 }
 
 h2, h3, label {
@@ -116,7 +116,7 @@ h3 {
 }
 
 section, div, p {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 body {
@@ -280,7 +280,7 @@ button {
 }
 
 label {
-  font-size: 1.4rem;
+  font-size: 1.15rem;
 }
 
 .more.today.info > span, .more.today.info > label {
@@ -290,12 +290,12 @@ label {
 
 .up-arrow {
   position: relative;
-  animation: move-arrow-up 0.75s ease-out 0s infinite;
+  animation: move-arrow-up 0.55s ease-out 0s infinite;
 }
 
 .down-arrow {
   position: relative;
-  animation: move-arrow-down 0.75s ease-out 0s infinite;
+  animation: move-arrow-down 0.45s ease-out 0s infinite;
 }
 
 @keyframes move-arrow-up {
@@ -305,7 +305,7 @@ label {
   }
 
   100% {
-    bottom: 7px;
+    bottom: 4px;
     opacity: 0;
   }
 }
@@ -317,7 +317,7 @@ label {
   }
 
   100% {
-    top: 7px;
+    top: 4px;
     opacity: 0;
   }
 }
@@ -414,7 +414,7 @@ form > div {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-shadow: none;
 }
 
@@ -427,7 +427,7 @@ form > div {
 }
 
 .top-details.wrapper > .location {
-  font-size: 1.225rem;
+  font-size: 1.175rem;
 }
 
 footer {
