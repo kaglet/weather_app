@@ -69,11 +69,11 @@
 }
 
 header h1 {
-  font-size: 3.7rem;
+  font-size: 4.0rem;
 }
 
 header svg {
-  font-size: 2.9rem;
+  font-size: 3.3rem;
   color: white;
   transition: all 0.2s ease-in-out;
 }
@@ -104,7 +104,7 @@ h1 span svg {
 }
 
 h2 {
-  font-size: 2.7rem;
+  font-size: 3.1rem;
 }
 
 h2, h3, label {
@@ -116,7 +116,7 @@ h3 {
 }
 
 section, div, p {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 body {
@@ -227,8 +227,7 @@ section.main {
   display: grid;
   grid-template: auto 1fr / 2fr 5fr;
   gap: 2rem;
-  flex: 1;
-  margin-bottom: 0.75rem;
+  margin-bottom: 2.75rem;
 }
 
 .card > div.pic {
@@ -279,8 +278,11 @@ button {
   border-top: 2px solid rgb(220, 220, 220, 0.1);
 }
 
+label {
+  font-size: 1.7rem;
+}
+
 .more.today.info > span, .more.today.info > label {
-  font-size: 1.4rem;
   display: flex;
   gap: 0.3rem;
 }
@@ -389,9 +391,9 @@ button {
 }
 
 form > div {
-  padding: 0 20rem;
   display: grid;
   grid-template: 1fr / auto 40rem auto;
+  margin: auto;
 }
 
 .location.input.wrapper > input {
@@ -411,7 +413,7 @@ form > div {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   text-shadow: none;
 }
 
@@ -424,7 +426,7 @@ form > div {
 }
 
 .top-details.wrapper > .location {
-  font-size: 1.225rem;
+  font-size: 1.4rem;
 }
 
 footer {
