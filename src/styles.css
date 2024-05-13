@@ -166,6 +166,7 @@ header {
   border-radius: var(--border-rad-medium);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   box-shadow: var(--box-shadow-outset);
 }
@@ -196,6 +197,7 @@ p, div, section {
   text-align: center;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   padding: var(--mini-card-padding);
 }
