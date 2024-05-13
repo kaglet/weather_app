@@ -1,4 +1,4 @@
-import createSelfCredits from "./credits/self_credits";
+import createSelfCredits from "../credits/self_credits.js";
 
 function createHeader() {
   let header = document.createElement("header");

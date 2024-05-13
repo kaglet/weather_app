@@ -41,7 +41,6 @@
   font-style: normal;
 }
 
-
 *,
 *::before,
 *::after {
@@ -53,6 +52,8 @@
 :root {
   font-family: var(--main-font-family);
   --primary-text-clr: rgb(226, 226, 226);
+  --accent-clr: rgb(0, 111, 139);
+  --accent-clr-lighter: rgb(2, 162, 202);
   --secondary-text-clr: white;
   --main-font-family: nunito, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -136,13 +137,16 @@ input, button {
   border-radius: 1.5rem;
 }
 
+button, footer a {
+  transition: background-color 0.2s linear, transform 0.1s ease-in, color 0.2s linear;
+}
+
 button {
-  background-color: rgb(0, 111, 139);
-  transition: background-color 0.2s linear, transform 0.1s ease-in;
+  background-color: var(--accent-clr);
 }
 
 button:hover {
-  background-color: rgb(0, 142, 177);
+  background-color: var(--accent-clr-lighter);
 }
 
 button:active {
@@ -172,7 +176,7 @@ header {
   color: var(--secondary-text-clr);
 }
 
-p, div {
+p, div, section {
   text-shadow: var(--text-shadow);
 }
 
@@ -419,4 +423,18 @@ form > div {
 
 .top-details.wrapper > .location {
   font-size: 1.8rem;
+}
+
+footer {
+  display: grid;
+  place-content: center;
+  color: white;
+}
+
+footer a {
+  color: var(--accent-clr);
+}
+
+footer a:hover {
+  color: var(--accent-clr-lighter);
 }

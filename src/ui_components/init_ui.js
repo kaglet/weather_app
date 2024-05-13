@@ -1,3 +1,4 @@
+import createFooter from "./footer/footer";
 import createHeader from "./header/header";
 import createMainSection from "./main_section/main_section";
 
@@ -7,8 +8,9 @@ function createUI() {
 
   let header = createHeader();
   let mainSection = createMainSection();
+  let footer = createFooter();
 
-  body.append(header, mainSection);
+  body.append(header, mainSection, footer);
 
   return body;
 }
