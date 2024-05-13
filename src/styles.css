@@ -300,7 +300,7 @@ button {
   }
 
   100% {
-    bottom: 10px;
+    bottom: 7px;
     opacity: 0;
   }
 }
@@ -312,7 +312,7 @@ button {
   }
 
   100% {
-    top: 10px;
+    top: 7px;
     opacity: 0;
   }
 }
