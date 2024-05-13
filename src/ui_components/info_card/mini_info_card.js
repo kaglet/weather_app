@@ -11,7 +11,6 @@ function createMiniInfoCard(condition, minTemp, maxTemp, imgURL) {
   card.classList.add("mini", "info", "card");
   minMaxTempsWrapper.classList.add("min-max", "wrapper");
 
-  // TODO: Map background picture based off condition
   pic.classList.add("pic");
   pic.style.backgroundImage = `url(${imgURL})`;
   conditionDisplay.textContent = condition;

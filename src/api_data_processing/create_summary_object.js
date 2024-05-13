@@ -13,7 +13,6 @@ class weatherSummary {
     this.#text = text;
     this.#code = code;
     this.#imageURL = iconRetriever.getIcon(this.code);
-    // TODO = Get data from futureWeather object
     this.#mintemp_c = mintemp_c;
     this.#mintemp_f = mintemp_f;
     this.#maxtemp_c = maxtemp_c;

@@ -259,6 +259,10 @@ input {
   color: black;
 }
 
+input:focus {
+  outline: 2px solid lightblue;
+}
+
 header, label, button {
   color: var(--secondary-text-clr);
   text-shadow: var(--heading-text-shadow-inset);
