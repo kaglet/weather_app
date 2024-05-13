@@ -160,6 +160,7 @@ header {
 }
 
 .current.weather.card {
+  min-height: var(--weather-card-height);
   position: relative;
   padding: var(--mini-card-padding);
   background-color: var(--background-secondary);
