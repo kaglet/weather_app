@@ -1,6 +1,7 @@
 import dataProcessor from "../../../api_data_processing/data_processor.js";
 import weatherDataRequester from "../../../api_requests/weather.js";
 import storageManager from "../../../in_session_storage/in_session_storage.js";
+import dropdownController from "../../dropdown/create_dropdown.js";
 import loadController from "../../loading/loading_control.js";
 import displayController from "../../ui_controller.js";
 import clearCurrentWeatherCard from "../current_weather_display/clear_current_weather_card.js";
@@ -12,6 +13,7 @@ function listenForUserInput(searchButton, locationInput, form) {
     let loadingParent = document.querySelector(".current.weather.card");
     if (location === "") return;
 
+    dropdownController.hideDropdown();
     clearCurrentWeatherCard();
     clearFutureWeatherCard();
     loadController.startLoading(loadingParent);
@@ -63,8 +65,11 @@ function createInputForm() {
   let wrapper = document.createElement("div");
   let searchButton = document.createElement("button");
   let searchIcon = document.createElement("i");
+  let locationInputWrapper = document.createElement("div");
 
   let locationInputID = "location-input";
+
+  locationInputWrapper.classList.add("location", "input", "wrapper");
 
   locationInput.setAttribute("id", locationInputID);
   locationLabel.setAttribute("for", locationInputID);
@@ -77,7 +82,9 @@ function createInputForm() {
   searchButton.setAttribute("type", "submit");
   searchIcon.classList.add("search");
 
-  wrapper.append(locationLabel, locationInput, searchButton);
+  locationInputWrapper.append(locationInput);
+
+  wrapper.append(locationLabel, locationInputWrapper, searchButton);
   form.append(wrapper);
 
   listenForUserInput(searchButton, locationInput, form);

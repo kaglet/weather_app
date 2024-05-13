@@ -6,6 +6,8 @@ function updateCurrentWeatherCard() {
   let currWeatherCard = document.querySelector(".current.weather.card");
   let todayTitle = document.createElement("h2");
   let todayDate = document.createElement("h3");
+  let locationDisplay = document.createElement("section");
+  let topDetailsWrapper = document.createElement("div");
   let miniCard = createCurrentMiniInfoCard(
     storageManager.getTodayData().summary.text,
     storageManager.getTodayData().summary.mintemp_c,
@@ -24,7 +26,23 @@ function updateCurrentWeatherCard() {
   todayDate.textContent = today.toDateString();
   todayDate.classList.add("today");
 
-  currWeatherCard.append(todayTitle, todayDate, miniCard, moreInfo);
+  locationDisplay.classList.add("location", "display");
+
+  locationDisplay.textContent = `${
+    storageManager.getTodayData().simplifiedLocation.name
+  }, ${storageManager.getTodayData().simplifiedLocation.region}, ${
+    storageManager.getTodayData().simplifiedLocation.country
+  }`;
+
+  topDetailsWrapper.append(todayTitle, todayDate);
+  topDetailsWrapper.classList.add("wrapper", "top-details");
+
+  currWeatherCard.append(
+    topDetailsWrapper,
+    locationDisplay,
+    miniCard,
+    moreInfo
+  );
 }
 
 export default updateCurrentWeatherCard;
