@@ -16,10 +16,10 @@ let displayController = (function () {
   };
 
   const displayLocations = (locations) => {
-    dropdownController.clearDropdown();
-    dropdownController.showDropdown();
-    dropdownController.populateDropdown(locations);
-    console.log(locations);
+    let locationsDropdown = document.querySelector(".locations.dropdown");
+    dropdownController.clearDropdown(locationsDropdown);
+    dropdownController.showDropdown(locationsDropdown);
+    dropdownController.populateDropdown(locations, locationsDropdown);
   };
 
   return { displayWeatherDetails, displayFutureWeather, displayLocations };

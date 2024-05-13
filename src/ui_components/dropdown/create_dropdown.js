@@ -1,12 +1,14 @@
 let dropdownController = (function dropdownController() {
-  const dropdown = (() => {
+  const createDropdown = (parent, ...args) => {
     let dropdown = document.createElement("ul");
-    dropdown.classList.add("dropdown");
+    dropdown.classList.add(...args);
+
+    parent.append(dropdown);
 
     return dropdown;
-  })();
+  };
 
-  const clearDropdown = () => {
+  const clearDropdown = (dropdown) => {
     while (dropdown.firstChild) {
       dropdown.removeChild(dropdown.lastChild);
     }
@@ -17,7 +19,7 @@ let dropdownController = (function dropdownController() {
       itemDisplay.textContent;
   };
 
-  const populateDropdown = (items) => {
+  const populateDropdown = (items, dropdown) => {
     items.forEach((item) => {
       let itemDisplay = document.createElement("li");
       itemDisplay.textContent = item;
@@ -29,16 +31,21 @@ let dropdownController = (function dropdownController() {
     });
   };
 
-  const hideDropdown = () => {
+  const hideDropdown = (dropdown) => {
     dropdown.style.display = "none";
   };
 
-  const showDropdown = () => {
-    document.querySelector(".location.input.wrapper").append(dropdown);
+  const showDropdown = (dropdown) => {
     dropdown.style.display = "block";
   };
 
-  return { populateDropdown, clearDropdown, showDropdown, hideDropdown };
+  return {
+    createDropdown,
+    populateDropdown,
+    clearDropdown,
+    showDropdown,
+    hideDropdown,
+  };
 })();
 
 export default dropdownController;

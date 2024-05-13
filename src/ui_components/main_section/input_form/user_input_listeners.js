@@ -13,7 +13,9 @@ function listenForUserInput(searchButton, locationInput, form) {
     let loadingParent = document.querySelector(".current.weather.card");
     if (location === "") return;
 
-    dropdownController.hideDropdown();
+    let locationsDropdown = document.querySelector(".locations.dropdown");
+
+    dropdownController.hideDropdown(locationsDropdown);
     clearCurrentWeatherCard();
     clearFutureWeatherCard();
     loadController.startLoading(loadingParent);
