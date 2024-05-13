@@ -69,11 +69,11 @@
 }
 
 header h1 {
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 header svg {
-  font-size: 3.4rem;
+  font-size: 3.1rem;
   color: white;
   transition: all 0.2s ease-in-out;
 }
@@ -104,7 +104,7 @@ h1 span svg {
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 h2, h3, label {
@@ -116,7 +116,7 @@ h3 {
 }
 
 section, div, p {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 body {
@@ -278,7 +278,7 @@ button {
 }
 
 .more.today.info > span, .more.today.info > label {
-  font-size: 1.75rem;
+  font-size: 1.6rem;
   display: flex;
   gap: 0.3rem;
 }
@@ -355,7 +355,7 @@ button {
 }
 
 .dropdown > li:hover {
-  cursor: grab;
+  cursor: pointer;
   background-color: rgb(72, 162, 192);
   border-color: rgb(72, 162, 192);
   color: white;
@@ -409,7 +409,7 @@ form > div {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-shadow: none;
 }
 
@@ -422,7 +422,7 @@ form > div {
 }
 
 .top-details.wrapper > .location {
-  font-size: 1.8rem;
+  font-size: 1.37rem;
 }
 
 footer {
