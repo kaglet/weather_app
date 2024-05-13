@@ -7711,13 +7711,13 @@ const weatherDataRequester = (() => {
   // TODO: The processors must use the innate methods
   function fetchFutureWeatherByLocation(location) {
     return tryFetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=7`
+      `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=7`
     );
   }
 
   function getCitiesStartingWith(citySearchString) {
     return tryFetch(
-      `http://api.weatherapi.com/v1/search.json?key=${API_KEY}&q=${citySearchString}`
+      `https://api.weatherapi.com/v1/search.json?key=${API_KEY}&q=${citySearchString}`
     );
   }
 
