@@ -69,11 +69,11 @@
 }
 
 header h1 {
-  font-size: 4rem;
+  font-size: 3.7rem;
 }
 
 header svg {
-  font-size: 3.1rem;
+  font-size: 2.9rem;
   color: white;
   transition: all 0.2s ease-in-out;
 }
@@ -104,7 +104,7 @@ h1 span svg {
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 2.7rem;
 }
 
 h2, h3, label {
@@ -116,7 +116,7 @@ h3 {
 }
 
 section, div, p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 body {
@@ -124,7 +124,6 @@ body {
   padding: 0.5rem 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
   background-color: var(--background-primary);
 }
 
@@ -157,6 +156,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .current.weather.card {
@@ -227,6 +227,7 @@ section.main {
   grid-template: auto 1fr / 2fr 5fr;
   gap: 2rem;
   flex: 1;
+  margin-bottom: 0.75rem;
 }
 
 .card > div.pic {
@@ -278,7 +279,7 @@ button {
 }
 
 .more.today.info > span, .more.today.info > label {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   display: flex;
   gap: 0.3rem;
 }
@@ -422,7 +423,7 @@ form > div {
 }
 
 .top-details.wrapper > .location {
-  font-size: 1.37rem;
+  font-size: 1.225rem;
 }
 
 footer {
