@@ -51,4 +51,4 @@ I hope the result of my thought process is code that is more readable and self e
 - [Google Fonts](https://fonts.google.com/) was used for the fonts.
 
 ### Libraries and APIs 
-- WeatherAPI used for the weather data. 
+- [WeatherAPI](https://www.weatherapi.com/) used for the weather data. 
