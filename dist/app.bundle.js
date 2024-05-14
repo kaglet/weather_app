@@ -7140,594 +7140,20 @@ function createFutureForecastDisplay() {
 
 /* harmony default export */ const future_forecast_display = (createFutureForecastDisplay);
 
-;// CONCATENATED MODULE: ./src/dynamic_imports/dynamic_imports.js
-const cache = {};
+;// CONCATENATED MODULE: ./src/ui_components/main_section/settings/preferences.js
+let preferencesManager = (function preferencesManager() {
+  let temperaturePref = "C";
 
-function importAll(r) {
-  r.keys().forEach((key) => (cache[key] = r(key)));
-}
-
-importAll(__webpack_require__(4441));
-// At build-time cache will be populated with all required modules.
-
-const dynamic_imports_images = Object.entries(cache).map((module) => {
-  const imageURL = module[1];
-  const name = module[0].replace("./", "");
-  // Strings are predictable in structure and easy to handle so we can replace without even needing positions of delimiters
-  const number = +module[0]
-    .replace("./day/", "")
-    .replace("./night/", "")
-    .replace(".png", "");
-  return { imageURL, name, number };
-});
-
-const dayImages = dynamic_imports_images.filter((image) => image.name.slice(0, 3) === "day");
-const nightImages = dynamic_imports_images.filter(
-  (image) => image.name.slice(0, 5) === "night"
-);
-
-
-
-;// CONCATENATED MODULE: ./src/weather_conditions/weather_conditions.js
-const weatherConditions = [
-  {
-    code: 1000,
-    day: "Sunny",
-    night: "Clear",
-    icon: 113,
-  },
-  {
-    code: 1003,
-    day: "Partly cloudy",
-    night: "Partly cloudy",
-    icon: 116,
-  },
-  {
-    code: 1006,
-    day: "Cloudy",
-    night: "Cloudy",
-    icon: 119,
-  },
-  {
-    code: 1009,
-    day: "Overcast",
-    night: "Overcast",
-    icon: 122,
-  },
-  {
-    code: 1030,
-    day: "Mist",
-    night: "Mist",
-    icon: 143,
-  },
-  {
-    code: 1063,
-    day: "Patchy rain possible",
-    night: "Patchy rain possible",
-    icon: 176,
-  },
-  {
-    code: 1066,
-    day: "Patchy snow possible",
-    night: "Patchy snow possible",
-    icon: 179,
-  },
-  {
-    code: 1069,
-    day: "Patchy sleet possible",
-    night: "Patchy sleet possible",
-    icon: 182,
-  },
-  {
-    code: 1072,
-    day: "Patchy freezing drizzle possible",
-    night: "Patchy freezing drizzle possible",
-    icon: 185,
-  },
-  {
-    code: 1087,
-    day: "Thundery outbreaks possible",
-    night: "Thundery outbreaks possible",
-    icon: 200,
-  },
-  {
-    code: 1114,
-    day: "Blowing snow",
-    night: "Blowing snow",
-    icon: 227,
-  },
-  {
-    code: 1117,
-    day: "Blizzard",
-    night: "Blizzard",
-    icon: 230,
-  },
-  {
-    code: 1135,
-    day: "Fog",
-    night: "Fog",
-    icon: 248,
-  },
-  {
-    code: 1147,
-    day: "Freezing fog",
-    night: "Freezing fog",
-    icon: 260,
-  },
-  {
-    code: 1150,
-    day: "Patchy light drizzle",
-    night: "Patchy light drizzle",
-    icon: 263,
-  },
-  {
-    code: 1153,
-    day: "Light drizzle",
-    night: "Light drizzle",
-    icon: 266,
-  },
-  {
-    code: 1168,
-    day: "Freezing drizzle",
-    night: "Freezing drizzle",
-    icon: 281,
-  },
-  {
-    code: 1171,
-    day: "Heavy freezing drizzle",
-    night: "Heavy freezing drizzle",
-    icon: 284,
-  },
-  {
-    code: 1180,
-    day: "Patchy light rain",
-    night: "Patchy light rain",
-    icon: 293,
-  },
-  {
-    code: 1183,
-    day: "Light rain",
-    night: "Light rain",
-    icon: 296,
-  },
-  {
-    code: 1186,
-    day: "Moderate rain at times",
-    night: "Moderate rain at times",
-    icon: 299,
-  },
-  {
-    code: 1189,
-    day: "Moderate rain",
-    night: "Moderate rain",
-    icon: 302,
-  },
-  {
-    code: 1192,
-    day: "Heavy rain at times",
-    night: "Heavy rain at times",
-    icon: 305,
-  },
-  {
-    code: 1195,
-    day: "Heavy rain",
-    night: "Heavy rain",
-    icon: 308,
-  },
-  {
-    code: 1198,
-    day: "Light freezing rain",
-    night: "Light freezing rain",
-    icon: 311,
-  },
-  {
-    code: 1201,
-    day: "Moderate or heavy freezing rain",
-    night: "Moderate or heavy freezing rain",
-    icon: 314,
-  },
-  {
-    code: 1204,
-    day: "Light sleet",
-    night: "Light sleet",
-    icon: 317,
-  },
-  {
-    code: 1207,
-    day: "Moderate or heavy sleet",
-    night: "Moderate or heavy sleet",
-    icon: 320,
-  },
-  {
-    code: 1210,
-    day: "Patchy light snow",
-    night: "Patchy light snow",
-    icon: 323,
-  },
-  {
-    code: 1213,
-    day: "Light snow",
-    night: "Light snow",
-    icon: 326,
-  },
-  {
-    code: 1216,
-    day: "Patchy moderate snow",
-    night: "Patchy moderate snow",
-    icon: 329,
-  },
-  {
-    code: 1219,
-    day: "Moderate snow",
-    night: "Moderate snow",
-    icon: 332,
-  },
-  {
-    code: 1222,
-    day: "Patchy heavy snow",
-    night: "Patchy heavy snow",
-    icon: 335,
-  },
-  {
-    code: 1225,
-    day: "Heavy snow",
-    night: "Heavy snow",
-    icon: 338,
-  },
-  {
-    code: 1237,
-    day: "Ice pellets",
-    night: "Ice pellets",
-    icon: 350,
-  },
-  {
-    code: 1240,
-    day: "Light rain shower",
-    night: "Light rain shower",
-    icon: 353,
-  },
-  {
-    code: 1243,
-    day: "Moderate or heavy rain shower",
-    night: "Moderate or heavy rain shower",
-    icon: 356,
-  },
-  {
-    code: 1246,
-    day: "Torrential rain shower",
-    night: "Torrential rain shower",
-    icon: 359,
-  },
-  {
-    code: 1249,
-    day: "Light sleet showers",
-    night: "Light sleet showers",
-    icon: 362,
-  },
-  {
-    code: 1252,
-    day: "Moderate or heavy sleet showers",
-    night: "Moderate or heavy sleet showers",
-    icon: 365,
-  },
-  {
-    code: 1255,
-    day: "Light snow showers",
-    night: "Light snow showers",
-    icon: 368,
-  },
-  {
-    code: 1258,
-    day: "Moderate or heavy snow showers",
-    night: "Moderate or heavy snow showers",
-    icon: 371,
-  },
-  {
-    code: 1261,
-    day: "Light showers of ice pellets",
-    night: "Light showers of ice pellets",
-    icon: 374,
-  },
-  {
-    code: 1264,
-    day: "Moderate or heavy showers of ice pellets",
-    night: "Moderate or heavy showers of ice pellets",
-    icon: 377,
-  },
-  {
-    code: 1273,
-    day: "Patchy light rain with thunder",
-    night: "Patchy light rain with thunder",
-    icon: 386,
-  },
-  {
-    code: 1276,
-    day: "Moderate or heavy rain with thunder",
-    night: "Moderate or heavy rain with thunder",
-    icon: 389,
-  },
-  {
-    code: 1279,
-    day: "Patchy light snow with thunder",
-    night: "Patchy light snow with thunder",
-    icon: 392,
-  },
-  {
-    code: 1282,
-    day: "Moderate or heavy snow with thunder",
-    night: "Moderate or heavy snow with thunder",
-    icon: 395,
-  },
-];
-
-/* harmony default export */ const weather_conditions = (weatherConditions);
-
-;// CONCATENATED MODULE: ./src/weather_conditions/icon_retriever.js
-
-
-
-let iconRetriever = (function iconRetriever() {
-  const decideDayNightVersion = () => {
-    let timeIsDay = new Date().getHours() < 18 && new Date().getHours() > 5;
-    if (timeIsDay) {
-      return "day";
-    } else {
-      return "night";
-    }
+  const setTemperaturePreference = (pref) => {
+    temperaturePref = pref;
   };
 
-  const mapCodeToIcon = (code) => {
-    let iconNumber = weather_conditions.find((obj) => obj.code === code).icon;
+  const getTemperaturePreference = () => temperaturePref;
 
-    return +iconNumber;
-  };
-
-  const searchForIcon = (iconNumber, timeString) => {
-    let completePath;
-    if (timeString === "day") {
-      completePath = dayImages.find(
-        (image) => image.number === iconNumber
-      ).imageURL;
-    } else {
-      completePath = nightImages.find(
-        (image) => image.number === iconNumber
-      ).imageURL;
-    }
-
-    return completePath;
-  };
-
-  const getIcon = (code) => {
-    let timeString = decideDayNightVersion();
-    let iconNumber = mapCodeToIcon(code);
-    let completePath = searchForIcon(iconNumber, timeString);
-
-    return completePath;
-  };
-
-  return { getIcon };
+  return { setTemperaturePreference, getTemperaturePreference };
 })();
 
-/* harmony default export */ const icon_retriever = (iconRetriever);
-
-;// CONCATENATED MODULE: ./src/api_data_processing/create_summary_object.js
-
-
-class weatherSummary {
-  #text;
-  #code;
-  #imageURL;
-  #mintemp_c;
-  #mintemp_f;
-  #maxtemp_c;
-  #maxtemp_f;
-
-  constructor(text, code, mintemp_c, mintemp_f, maxtemp_c, maxtemp_f) {
-    this.#text = text;
-    this.#code = code;
-    this.#imageURL = icon_retriever.getIcon(this.code);
-    // TODO = Get data from futureWeather object
-    this.#mintemp_c = mintemp_c;
-    this.#mintemp_f = mintemp_f;
-    this.#maxtemp_c = maxtemp_c;
-    this.#maxtemp_f = maxtemp_f;
-  }
-
-  get text() {
-    return this.#text;
-  }
-
-  get code() {
-    return this.#code;
-  }
-
-  get mintemp_c() {
-    return this.#mintemp_c;
-  }
-
-  get mintemp_f() {
-    return this.#mintemp_f;
-  }
-
-  get maxtemp_c() {
-    return this.#maxtemp_c;
-  }
-
-  get maxtemp_f() {
-    return this.#maxtemp_f;
-  }
-
-  get imageURL() {
-    return this.#imageURL;
-  }
-}
-
-/* harmony default export */ const create_summary_object = (weatherSummary);
-
-;// CONCATENATED MODULE: ./src/api_data_processing/create_future_summary.js
-
-
-// Class with getter/setter methods for ease of access of properties - a factory function could have been used with prototypal inheritance
-class futureDayWeatherSummary extends create_summary_object {
-  #date;
-  constructor(text, code, mintemp_c, mintemp_f, maxtemp_c, maxtemp_f, date) {
-    super(text, code, mintemp_c, mintemp_f, maxtemp_c, maxtemp_f);
-    this.#date = date;
-  }
-
-  get date() {
-    return this.#date;
-  }
-}
-
-/* harmony default export */ const create_future_summary = (futureDayWeatherSummary);
-
-;// CONCATENATED MODULE: ./src/api_data_processing/create_today_summary.js
-
-
-// Class with getter/setter methods for ease of access of properties - a factory function could have been used with prototypal inheritance
-class todayWeatherSummary extends create_summary_object {
-  #temp_c;
-  #temp_f;
-
-  constructor(
-    text,
-    code,
-    temp_c,
-    temp_f,
-    mintemp_c,
-    mintemp_f,
-    maxtemp_c,
-    maxtemp_f
-  ) {
-    super(text, code, mintemp_c, mintemp_f, maxtemp_c, maxtemp_f);
-    this.#temp_c = temp_c;
-    this.#temp_f = temp_f;
-  }
-
-  get temp_c() {
-    return this.#temp_c;
-  }
-
-  get temp_f() {
-    return this.#temp_f;
-  }
-}
-
-/* harmony default export */ const create_today_summary = (todayWeatherSummary);
-
-;// CONCATENATED MODULE: ./src/api_data_processing/data_processor.js
-
-
-
-// Gives only relevant data back in a relevant unified, reusable format for the program
-let dataProcessor = (function dataProcessor() {
-  // Extract required weather data on object
-  const processWeatherFeedback = (futureWeather) => {
-    let currentConditions = futureWeather.current;
-    let location = futureWeather.location;
-
-    let summary = new create_today_summary(
-      currentConditions.condition.text,
-      currentConditions.condition.code,
-      currentConditions.feelslike_c,
-      currentConditions.feelslike_f,
-      futureWeather.forecast.forecastday[0].day.mintemp_c,
-      futureWeather.forecast.forecastday[0].day.mintemp_f,
-      futureWeather.forecast.forecastday[0].day.maxtemp_c,
-      futureWeather.forecast.forecastday[0].day.maxtemp_f
-    );
-
-    let simplifiedLocation = {
-      name: location.name,
-      region: location.region,
-      country: location.country,
-    };
-
-    let extras = {
-      wind_kph: currentConditions.wind_kph,
-      wind_mph: currentConditions.wind_mph,
-      humidity: currentConditions.humidity,
-      uv: currentConditions.uv,
-    };
-
-    let processedFutureWeather = futureWeather.forecast.forecastday.map(
-      (dayData) =>
-        new create_future_summary(
-          dayData.day.condition.text,
-          dayData.day.condition.code,
-          dayData.day.mintemp_c,
-          dayData.day.mintemp_f,
-          dayData.day.maxtemp_c,
-          dayData.day.maxtemp_f,
-          dayData.date
-        )
-    );
-
-    let processedTodayWeather = {
-      summary,
-      extras,
-      simplifiedLocation,
-    };
-
-    return {
-      processedTodayWeather,
-      processedFutureWeather,
-    };
-  };
-
-  // Extract required data from array of locations
-  const processLocationArray = (arr) => {
-    let arrOfNames = arr.map(
-      (location) => `${location.name}, ${location.region}, ${location.country}`
-    );
-    return arrOfNames;
-  };
-
-  return { processLocationArray, processWeatherFeedback };
-})();
-
-/* harmony default export */ const data_processor = (dataProcessor);
-
-;// CONCATENATED MODULE: ./src/api_requests/weather.js
-// API Key:
-const API_KEY = "bae835189d75464b96f82826241704";
-
-const weatherDataRequester = (() => {
-  // Fetch from weather api using their error codes to inform request rejections not explicitly detected as errors
-  async function tryFetch(requestString) {
-    let response = await fetch(requestString, { mode: "cors" });
-    // Custom handle errors by generating a promise reject during our specifications not implicit API specifications
-    if (response.status !== 200) {
-      // TODO: Handle errors in a more specific custom way rather than just receiving the error
-      return Promise.reject(response);
-    } else {
-      let jsonResponse = await response.json();
-      return jsonResponse;
-    }
-  }
-  // TODO: Fetch current weather as well as average conditions for today's weather report
-  // Put them together into an object to report today's weather from processing and parsing what you need from both of them
-  // TODO: The processors must use the innate methods
-  function fetchFutureWeatherByLocation(location) {
-    return tryFetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=7`
-    );
-  }
-
-  function getCitiesStartingWith(citySearchString) {
-    return tryFetch(
-      `https://api.weatherapi.com/v1/search.json?key=${API_KEY}&q=${citySearchString}`
-    );
-  }
-
-  return {
-    fetchFutureWeatherByLocation,
-    getCitiesStartingWith,
-  };
-})();
-
-/* harmony default export */ const weather = (weatherDataRequester);
+/* harmony default export */ const preferences = (preferencesManager);
 
 ;// CONCATENATED MODULE: ./src/in_session_storage/in_session_storage.js
 let storageManager = (function storageManager() {
@@ -7750,6 +7176,8 @@ let storageManager = (function storageManager() {
 /* harmony default export */ const in_session_storage = (storageManager);
 
 ;// CONCATENATED MODULE: ./src/ui_components/dropdown/create_dropdown.js
+// Controls and manages a given dropdown
+
 let dropdownController = (function dropdownController() {
   const dropdown = (() => {
     let dropdown = document.createElement("ul");
@@ -7795,45 +7223,6 @@ let dropdownController = (function dropdownController() {
 
 /* harmony default export */ const create_dropdown = (dropdownController);
 
-;// CONCATENATED MODULE: ./src/ui_components/loading/loading_spinner/create_spinner.js
-function createSpinner() {
-  let spinner = document.createElement("div");
-  spinner.classList.add("spinner");
-
-  return spinner;
-}
-
-/* harmony default export */ const create_spinner = (createSpinner);
-
-;// CONCATENATED MODULE: ./src/ui_components/loading/loading_control.js
-
-
-let loadController = (function loadController() {
-  let loadingScreen = (() => {
-    let loadingScreen = document.createElement("div");
-
-    loadingScreen.classList.add("loading", "screen");
-    let spinner = create_spinner();
-
-    loadingScreen.append(spinner);
-
-    return loadingScreen;
-  })();
-
-  const startLoading = (parent) => {
-    parent.append(loadingScreen);
-    loadingScreen.style.display = "block";
-  };
-
-  const stopLoading = () => {
-    loadingScreen.style.display = "none";
-  };
-
-  return { startLoading, stopLoading };
-})();
-
-/* harmony default export */ const loading_control = (loadController);
-
 ;// CONCATENATED MODULE: ./src/ui_components/main_section/current_weather_display/clear_current_weather_card.js
 function clearCurrentWeatherCard() {
   let currWeatherCard = document.querySelector(".current.weather.card");
@@ -7846,6 +7235,8 @@ function clearCurrentWeatherCard() {
 /* harmony default export */ const clear_current_weather_card = (clearCurrentWeatherCard);
 
 ;// CONCATENATED MODULE: ./src/ui_components/info_card/mini_info_card.js
+
+
 function createMiniInfoCard(condition, minTemp, maxTemp, imgURL) {
   let card = document.createElement("div");
   let pic = document.createElement("div");
@@ -7859,7 +7250,6 @@ function createMiniInfoCard(condition, minTemp, maxTemp, imgURL) {
   card.classList.add("mini", "info", "card");
   minMaxTempsWrapper.classList.add("min-max", "wrapper");
 
-  // TODO: Map background picture based off condition
   pic.classList.add("pic");
   pic.style.backgroundImage = `url(${imgURL})`;
   conditionDisplay.textContent = condition;
@@ -7868,8 +7258,14 @@ function createMiniInfoCard(condition, minTemp, maxTemp, imgURL) {
   upArrowIcon.classList.add("up-arrow");
   downArrowIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2854C5"><path d="M440-800v487L216-537l-56 57 320 320 320-320-56-57-224 224v-487h-80Z"/></svg>`;
   upArrowIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#F9DB78"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></svg>`;
-  minTempDisplay.append(downArrowIcon, minTemp + "°C");
-  maxTempDisplay.append(upArrowIcon, maxTemp + "°C");
+  minTempDisplay.append(
+    downArrowIcon,
+    `${minTemp}°${preferences.getTemperaturePreference()}`
+  );
+  maxTempDisplay.append(
+    upArrowIcon,
+    `${maxTemp}°${preferences.getTemperaturePreference()}`
+  );
 
   minMaxTempsWrapper.append(minTempDisplay, maxTempDisplay);
 
@@ -7881,6 +7277,7 @@ function createMiniInfoCard(condition, minTemp, maxTemp, imgURL) {
 /* harmony default export */ const mini_info_card = (createMiniInfoCard);
 
 ;// CONCATENATED MODULE: ./src/ui_components/info_card/current_mini_info_card.js
+
 
 
 function createCurrentMiniInfoCard(
@@ -7896,7 +7293,10 @@ function createCurrentMiniInfoCard(
   let feelsLikeIcon = document.createElement("span");
 
   feelsLikeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#F19E39"><path d="M480-80q-83 0-141.5-58.5T280-280q0-48 21-89.5t59-70.5v-320q0-50 35-85t85-35q50 0 85 35t35 85v320q38 29 59 70.5t21 89.5q0 83-58.5 141.5T480-80Zm-40-440h80v-40h-40v-40h40v-80h-40v-40h40v-40q0-17-11.5-28.5T480-800q-17 0-28.5 11.5T440-760v240Z"/></svg>`;
-  currentTempDisplay.append(feelsLikeIcon, `Feels like ${currentTemp} °C`);
+  currentTempDisplay.append(
+    feelsLikeIcon,
+    `Feels like ${currentTemp} °${preferences.getTemperaturePreference()}`
+  );
 
   card.insertBefore(currentTempDisplay, pic);
 
@@ -7962,6 +7362,7 @@ function createMoreTodayInfoCard(wind, humidity, uv) {
 
 
 
+
 function updateCurrentWeatherCard() {
   let currWeatherCard = document.querySelector(".current.weather.card");
   let todayTitle = document.createElement("h2");
@@ -7970,9 +7371,15 @@ function updateCurrentWeatherCard() {
   let topDetailsWrapper = document.createElement("div");
   let miniCard = current_mini_info_card(
     in_session_storage.getTodayData().summary.text,
-    in_session_storage.getTodayData().summary.mintemp_c,
-    in_session_storage.getTodayData().summary.maxtemp_c,
-    in_session_storage.getTodayData().summary.temp_c,
+    in_session_storage.getTodayData().summary[
+      `mintemp_${preferences.getTemperaturePreference().toLowerCase()}`
+    ],
+    in_session_storage.getTodayData().summary[
+      `maxtemp_${preferences.getTemperaturePreference().toLowerCase()}`
+    ],
+    in_session_storage.getTodayData().summary[
+      `temp_${preferences.getTemperaturePreference().toLowerCase()}`
+    ],
     in_session_storage.getTodayData().summary.imageURL
   );
   let moreInfo = more_today_info(
@@ -11141,6 +10548,7 @@ function cleanEscapedString(input) {
 
 
 
+
 // TODO: Create a base card that you extend further like you already did with the current cards - for future vs current summary card
 // This is to fix the card where I have a blank parameter passed through, because one needs a current temperature and the other doesn't
 // This goes in conjunction with the summary objects
@@ -11151,8 +10559,12 @@ function updateFutureWeatherCard() {
   for (let i = 1; i < 7; i++) {
     let miniCard = future_mini_info_card(
       futureWeatherArray[i].text,
-      futureWeatherArray[i].mintemp_c,
-      futureWeatherArray[i].maxtemp_c,
+      futureWeatherArray[i][
+        `mintemp_${preferences.getTemperaturePreference().toLowerCase()}`
+      ],
+      futureWeatherArray[i][
+        `maxtemp_${preferences.getTemperaturePreference().toLowerCase()}`
+      ],
       format(new Date(futureWeatherArray[i].date), "cccc"),
       futureWeatherArray[i].imageURL
     );
@@ -11193,7 +10605,682 @@ let displayController = (function () {
 
 /* harmony default export */ const ui_controller = (displayController);
 
-;// CONCATENATED MODULE: ./src/ui_components/main_section/input_form/input_form.js
+;// CONCATENATED MODULE: ./src/ui_components/main_section/settings/celsius_farenheit/toggle.js
+
+
+
+
+function toggle() {
+  if (preferences.getTemperaturePreference() === "C") {
+    preferences.setTemperaturePreference("F");
+    document.querySelector(
+      ".toggle.temperature"
+    ).textContent = `°${preferences.getTemperaturePreference()}`;
+
+    // Display only if cards are present for switching else return with saved preference only
+    if (in_session_storage.getTodayData() === undefined) return;
+
+    // Call update cards display procedure with different dynamically set and managed parameters
+    ui_controller.displayWeatherDetails(in_session_storage.getTodayData());
+    ui_controller.displayFutureWeather(in_session_storage.getForecastData());
+  } else {
+    preferences.setTemperaturePreference("C");
+    document.querySelector(
+      ".toggle.temperature"
+    ).textContent = `°${preferences.getTemperaturePreference()}`;
+
+    // Display only if cards are present for switching else return with saved preference only
+    if (in_session_storage.getTodayData() === undefined) return;
+
+    // Call update cards display procedure with different dynamically set and managed parameters
+    ui_controller.displayWeatherDetails(in_session_storage.getTodayData());
+    ui_controller.displayFutureWeather(in_session_storage.getForecastData());
+  }
+}
+
+/* harmony default export */ const celsius_farenheit_toggle = (toggle);
+
+;// CONCATENATED MODULE: ./src/ui_components/main_section/settings/celsius_farenheit/celsius_farenheit.js
+
+
+
+function createToggle() {
+  let toggle = document.createElement("div");
+  toggle.classList.add("toggle", "temperature");
+  toggle.textContent = `°${preferences.getTemperaturePreference()}`;
+
+  toggle.addEventListener("click", celsius_farenheit_toggle); // Use storage data differently in parameters that's all, with reload if needed, same display functions
+
+  return toggle;
+}
+
+/* harmony default export */ const celsius_farenheit = (createToggle);
+
+;// CONCATENATED MODULE: ./src/dynamic_imports/dynamic_imports.js
+const cache = {};
+
+function importAll(r) {
+  r.keys().forEach((key) => (cache[key] = r(key)));
+}
+
+importAll(__webpack_require__(4441));
+// At build-time cache will be populated with all required modules.
+
+const dynamic_imports_images = Object.entries(cache).map((module) => {
+  const imageURL = module[1];
+  const name = module[0].replace("./", "");
+  // Strings are predictable in structure and easy to handle so we can replace without even needing positions of delimiters
+  const number = +module[0]
+    .replace("./day/", "")
+    .replace("./night/", "")
+    .replace(".png", "");
+  return { imageURL, name, number };
+});
+
+const dayImages = dynamic_imports_images.filter((image) => image.name.slice(0, 3) === "day");
+const nightImages = dynamic_imports_images.filter(
+  (image) => image.name.slice(0, 5) === "night"
+);
+
+
+
+;// CONCATENATED MODULE: ./src/weather_conditions/weather_conditions.js
+const weatherConditions = [
+  {
+    code: 1000,
+    day: "Sunny",
+    night: "Clear",
+    icon: 113,
+  },
+  {
+    code: 1003,
+    day: "Partly cloudy",
+    night: "Partly cloudy",
+    icon: 116,
+  },
+  {
+    code: 1006,
+    day: "Cloudy",
+    night: "Cloudy",
+    icon: 119,
+  },
+  {
+    code: 1009,
+    day: "Overcast",
+    night: "Overcast",
+    icon: 122,
+  },
+  {
+    code: 1030,
+    day: "Mist",
+    night: "Mist",
+    icon: 143,
+  },
+  {
+    code: 1063,
+    day: "Patchy rain possible",
+    night: "Patchy rain possible",
+    icon: 176,
+  },
+  {
+    code: 1066,
+    day: "Patchy snow possible",
+    night: "Patchy snow possible",
+    icon: 179,
+  },
+  {
+    code: 1069,
+    day: "Patchy sleet possible",
+    night: "Patchy sleet possible",
+    icon: 182,
+  },
+  {
+    code: 1072,
+    day: "Patchy freezing drizzle possible",
+    night: "Patchy freezing drizzle possible",
+    icon: 185,
+  },
+  {
+    code: 1087,
+    day: "Thundery outbreaks possible",
+    night: "Thundery outbreaks possible",
+    icon: 200,
+  },
+  {
+    code: 1114,
+    day: "Blowing snow",
+    night: "Blowing snow",
+    icon: 227,
+  },
+  {
+    code: 1117,
+    day: "Blizzard",
+    night: "Blizzard",
+    icon: 230,
+  },
+  {
+    code: 1135,
+    day: "Fog",
+    night: "Fog",
+    icon: 248,
+  },
+  {
+    code: 1147,
+    day: "Freezing fog",
+    night: "Freezing fog",
+    icon: 260,
+  },
+  {
+    code: 1150,
+    day: "Patchy light drizzle",
+    night: "Patchy light drizzle",
+    icon: 263,
+  },
+  {
+    code: 1153,
+    day: "Light drizzle",
+    night: "Light drizzle",
+    icon: 266,
+  },
+  {
+    code: 1168,
+    day: "Freezing drizzle",
+    night: "Freezing drizzle",
+    icon: 281,
+  },
+  {
+    code: 1171,
+    day: "Heavy freezing drizzle",
+    night: "Heavy freezing drizzle",
+    icon: 284,
+  },
+  {
+    code: 1180,
+    day: "Patchy light rain",
+    night: "Patchy light rain",
+    icon: 293,
+  },
+  {
+    code: 1183,
+    day: "Light rain",
+    night: "Light rain",
+    icon: 296,
+  },
+  {
+    code: 1186,
+    day: "Moderate rain at times",
+    night: "Moderate rain at times",
+    icon: 299,
+  },
+  {
+    code: 1189,
+    day: "Moderate rain",
+    night: "Moderate rain",
+    icon: 302,
+  },
+  {
+    code: 1192,
+    day: "Heavy rain at times",
+    night: "Heavy rain at times",
+    icon: 305,
+  },
+  {
+    code: 1195,
+    day: "Heavy rain",
+    night: "Heavy rain",
+    icon: 308,
+  },
+  {
+    code: 1198,
+    day: "Light freezing rain",
+    night: "Light freezing rain",
+    icon: 311,
+  },
+  {
+    code: 1201,
+    day: "Moderate or heavy freezing rain",
+    night: "Moderate or heavy freezing rain",
+    icon: 314,
+  },
+  {
+    code: 1204,
+    day: "Light sleet",
+    night: "Light sleet",
+    icon: 317,
+  },
+  {
+    code: 1207,
+    day: "Moderate or heavy sleet",
+    night: "Moderate or heavy sleet",
+    icon: 320,
+  },
+  {
+    code: 1210,
+    day: "Patchy light snow",
+    night: "Patchy light snow",
+    icon: 323,
+  },
+  {
+    code: 1213,
+    day: "Light snow",
+    night: "Light snow",
+    icon: 326,
+  },
+  {
+    code: 1216,
+    day: "Patchy moderate snow",
+    night: "Patchy moderate snow",
+    icon: 329,
+  },
+  {
+    code: 1219,
+    day: "Moderate snow",
+    night: "Moderate snow",
+    icon: 332,
+  },
+  {
+    code: 1222,
+    day: "Patchy heavy snow",
+    night: "Patchy heavy snow",
+    icon: 335,
+  },
+  {
+    code: 1225,
+    day: "Heavy snow",
+    night: "Heavy snow",
+    icon: 338,
+  },
+  {
+    code: 1237,
+    day: "Ice pellets",
+    night: "Ice pellets",
+    icon: 350,
+  },
+  {
+    code: 1240,
+    day: "Light rain shower",
+    night: "Light rain shower",
+    icon: 353,
+  },
+  {
+    code: 1243,
+    day: "Moderate or heavy rain shower",
+    night: "Moderate or heavy rain shower",
+    icon: 356,
+  },
+  {
+    code: 1246,
+    day: "Torrential rain shower",
+    night: "Torrential rain shower",
+    icon: 359,
+  },
+  {
+    code: 1249,
+    day: "Light sleet showers",
+    night: "Light sleet showers",
+    icon: 362,
+  },
+  {
+    code: 1252,
+    day: "Moderate or heavy sleet showers",
+    night: "Moderate or heavy sleet showers",
+    icon: 365,
+  },
+  {
+    code: 1255,
+    day: "Light snow showers",
+    night: "Light snow showers",
+    icon: 368,
+  },
+  {
+    code: 1258,
+    day: "Moderate or heavy snow showers",
+    night: "Moderate or heavy snow showers",
+    icon: 371,
+  },
+  {
+    code: 1261,
+    day: "Light showers of ice pellets",
+    night: "Light showers of ice pellets",
+    icon: 374,
+  },
+  {
+    code: 1264,
+    day: "Moderate or heavy showers of ice pellets",
+    night: "Moderate or heavy showers of ice pellets",
+    icon: 377,
+  },
+  {
+    code: 1273,
+    day: "Patchy light rain with thunder",
+    night: "Patchy light rain with thunder",
+    icon: 386,
+  },
+  {
+    code: 1276,
+    day: "Moderate or heavy rain with thunder",
+    night: "Moderate or heavy rain with thunder",
+    icon: 389,
+  },
+  {
+    code: 1279,
+    day: "Patchy light snow with thunder",
+    night: "Patchy light snow with thunder",
+    icon: 392,
+  },
+  {
+    code: 1282,
+    day: "Moderate or heavy snow with thunder",
+    night: "Moderate or heavy snow with thunder",
+    icon: 395,
+  },
+];
+
+/* harmony default export */ const weather_conditions = (weatherConditions);
+
+;// CONCATENATED MODULE: ./src/weather_conditions/icon_retriever.js
+
+
+
+let iconRetriever = (function iconRetriever() {
+  const decideDayNightVersion = () => {
+    let timeIsDay = new Date().getHours() < 18 && new Date().getHours() > 5;
+    if (timeIsDay) {
+      return "day";
+    } else {
+      return "night";
+    }
+  };
+
+  const mapCodeToIcon = (code) => {
+    let iconNumber = weather_conditions.find((obj) => obj.code === code).icon;
+
+    return +iconNumber;
+  };
+
+  const searchForIcon = (iconNumber, timeString) => {
+    let completePath;
+    if (timeString === "day") {
+      completePath = dayImages.find(
+        (image) => image.number === iconNumber
+      ).imageURL;
+    } else {
+      completePath = nightImages.find(
+        (image) => image.number === iconNumber
+      ).imageURL;
+    }
+
+    return completePath;
+  };
+
+  const getIcon = (code) => {
+    let timeString = decideDayNightVersion();
+    let iconNumber = mapCodeToIcon(code);
+    let completePath = searchForIcon(iconNumber, timeString);
+
+    return completePath;
+  };
+
+  return { getIcon };
+})();
+
+/* harmony default export */ const icon_retriever = (iconRetriever);
+
+;// CONCATENATED MODULE: ./src/api_data_processing/create_summary_object.js
+
+
+class weatherSummary {
+  #text;
+  #code;
+  #imageURL;
+  #mintemp_c;
+  #mintemp_f;
+  #maxtemp_c;
+  #maxtemp_f;
+
+  constructor(text, code, mintemp_c, mintemp_f, maxtemp_c, maxtemp_f) {
+    this.#text = text;
+    this.#code = code;
+    this.#imageURL = icon_retriever.getIcon(this.code);
+    this.#mintemp_c = mintemp_c;
+    this.#mintemp_f = mintemp_f;
+    this.#maxtemp_c = maxtemp_c;
+    this.#maxtemp_f = maxtemp_f;
+  }
+
+  get text() {
+    return this.#text;
+  }
+
+  get code() {
+    return this.#code;
+  }
+
+  get mintemp_c() {
+    return this.#mintemp_c;
+  }
+
+  get mintemp_f() {
+    return this.#mintemp_f;
+  }
+
+  get maxtemp_c() {
+    return this.#maxtemp_c;
+  }
+
+  get maxtemp_f() {
+    return this.#maxtemp_f;
+  }
+
+  get imageURL() {
+    return this.#imageURL;
+  }
+}
+
+/* harmony default export */ const create_summary_object = (weatherSummary);
+
+;// CONCATENATED MODULE: ./src/api_data_processing/create_future_summary.js
+
+
+// Class with getter/setter methods for ease of access of properties - a factory function could have been used with prototypal inheritance
+class futureDayWeatherSummary extends create_summary_object {
+  #date;
+  constructor(text, code, mintemp_c, mintemp_f, maxtemp_c, maxtemp_f, date) {
+    super(text, code, mintemp_c, mintemp_f, maxtemp_c, maxtemp_f);
+    this.#date = date;
+  }
+
+  get date() {
+    return this.#date;
+  }
+}
+
+/* harmony default export */ const create_future_summary = (futureDayWeatherSummary);
+
+;// CONCATENATED MODULE: ./src/api_data_processing/create_today_summary.js
+
+
+// Class with getter/setter methods for ease of access of properties - a factory function could have been used with prototypal inheritance
+class todayWeatherSummary extends create_summary_object {
+  #temp_c;
+  #temp_f;
+
+  constructor(
+    text,
+    code,
+    temp_c,
+    temp_f,
+    mintemp_c,
+    mintemp_f,
+    maxtemp_c,
+    maxtemp_f
+  ) {
+    super(text, code, mintemp_c, mintemp_f, maxtemp_c, maxtemp_f);
+    this.#temp_c = temp_c;
+    this.#temp_f = temp_f;
+  }
+
+  get temp_c() {
+    return this.#temp_c;
+  }
+
+  get temp_f() {
+    return this.#temp_f;
+  }
+}
+
+/* harmony default export */ const create_today_summary = (todayWeatherSummary);
+
+;// CONCATENATED MODULE: ./src/api_data_processing/data_processor.js
+
+
+
+// Gives only relevant data back in a relevant unified, reusable format for the program
+let dataProcessor = (function dataProcessor() {
+  // Extract required weather data on object
+  const processWeatherFeedback = (futureWeather) => {
+    let currentConditions = futureWeather.current;
+    let location = futureWeather.location;
+
+    let summary = new create_today_summary(
+      currentConditions.condition.text,
+      currentConditions.condition.code,
+      currentConditions.feelslike_c,
+      currentConditions.feelslike_f,
+      futureWeather.forecast.forecastday[0].day.mintemp_c,
+      futureWeather.forecast.forecastday[0].day.mintemp_f,
+      futureWeather.forecast.forecastday[0].day.maxtemp_c,
+      futureWeather.forecast.forecastday[0].day.maxtemp_f
+    );
+
+    let simplifiedLocation = {
+      name: location.name,
+      region: location.region,
+      country: location.country,
+    };
+
+    let extras = {
+      wind_kph: currentConditions.wind_kph,
+      wind_mph: currentConditions.wind_mph,
+      humidity: currentConditions.humidity,
+      uv: currentConditions.uv,
+    };
+
+    let processedFutureWeather = futureWeather.forecast.forecastday.map(
+      (dayData) =>
+        new create_future_summary(
+          dayData.day.condition.text,
+          dayData.day.condition.code,
+          dayData.day.mintemp_c,
+          dayData.day.mintemp_f,
+          dayData.day.maxtemp_c,
+          dayData.day.maxtemp_f,
+          dayData.date
+        )
+    );
+
+    let processedTodayWeather = {
+      summary,
+      extras,
+      simplifiedLocation,
+    };
+
+    return {
+      processedTodayWeather,
+      processedFutureWeather,
+    };
+  };
+
+  // Extract required data from array of locations
+  const processLocationArray = (arr) => {
+    let arrOfNames = arr.map(
+      (location) => `${location.name}, ${location.region}, ${location.country}`
+    );
+    return arrOfNames;
+  };
+
+  return { processLocationArray, processWeatherFeedback };
+})();
+
+/* harmony default export */ const data_processor = (dataProcessor);
+
+;// CONCATENATED MODULE: ./src/api_requests/weather.js
+// API Key:
+const API_KEY = "bae835189d75464b96f82826241704";
+
+const weatherDataRequester = (() => {
+  // Fetch from weather api using their error codes to inform request rejections not explicitly detected as errors
+  async function tryFetch(requestString) {
+    let response = await fetch(requestString, { mode: "cors" });
+    // Custom handle errors by generating a promise reject during our specifications not implicit API specifications
+    if (response.status !== 200) {
+      return Promise.reject(response);
+    } else {
+      let jsonResponse = await response.json();
+      return jsonResponse;
+    }
+  }
+
+  function fetchFutureWeatherByLocation(location) {
+    return tryFetch(
+      `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=7`
+    );
+  }
+
+  function getCitiesStartingWith(citySearchString) {
+    return tryFetch(
+      `https://api.weatherapi.com/v1/search.json?key=${API_KEY}&q=${citySearchString}`
+    );
+  }
+
+  return {
+    fetchFutureWeatherByLocation,
+    getCitiesStartingWith,
+  };
+})();
+
+/* harmony default export */ const weather = (weatherDataRequester);
+
+;// CONCATENATED MODULE: ./src/ui_components/loading/loading_spinner/create_spinner.js
+function createSpinner() {
+  let spinner = document.createElement("div");
+  spinner.classList.add("spinner");
+
+  return spinner;
+}
+
+/* harmony default export */ const create_spinner = (createSpinner);
+
+;// CONCATENATED MODULE: ./src/ui_components/loading/loading_control.js
+
+
+let loadController = (function loadController() {
+  let loadingScreen = (() => {
+    let loadingScreen = document.createElement("div");
+
+    loadingScreen.classList.add("loading", "screen");
+    let spinner = create_spinner();
+
+    loadingScreen.append(spinner);
+
+    return loadingScreen;
+  })();
+
+  const startLoading = (parent) => {
+    parent.append(loadingScreen);
+    loadingScreen.style.display = "block";
+  };
+
+  const stopLoading = () => {
+    loadingScreen.style.display = "none";
+  };
+
+  return { startLoading, stopLoading };
+})();
+
+/* harmony default export */ const loading_control = (loadController);
+
+;// CONCATENATED MODULE: ./src/ui_components/main_section/input_form/user_input_listeners.js
 
 
 
@@ -11224,7 +11311,6 @@ function listenForUserInput(searchButton, locationInput, form) {
       loading_control.stopLoading(loadingParent);
       in_session_storage.storeForecastData(processedFutureWeather);
       in_session_storage.storeTodayData(processedTodayWeather);
-      // TODO: Remove loading then show in UI
 
       ui_controller.displayWeatherDetails(in_session_storage.getTodayData());
       ui_controller.displayFutureWeather(in_session_storage.getForecastData());
@@ -11250,9 +11336,13 @@ function listenForUserInput(searchButton, locationInput, form) {
     event.preventDefault();
     completeWeatherSearchProcedure();
   });
-
-  // TODO: Add listener on press of enter key
 }
+
+/* harmony default export */ const user_input_listeners = (listenForUserInput);
+
+;// CONCATENATED MODULE: ./src/ui_components/main_section/input_form/input_form.js
+
+
 
 function createInputForm() {
   let form = document.createElement("form");
@@ -11262,6 +11352,7 @@ function createInputForm() {
   let searchButton = document.createElement("button");
   let searchIcon = document.createElement("i");
   let locationInputWrapper = document.createElement("div");
+  let tempToggle = celsius_farenheit();
 
   let locationInputID = "location-input";
 
@@ -11280,15 +11371,15 @@ function createInputForm() {
 
   locationInputWrapper.append(locationInput);
 
-  wrapper.append(locationLabel, locationInputWrapper, searchButton);
+  wrapper.append(locationLabel, locationInputWrapper, searchButton, tempToggle);
   form.append(wrapper);
 
-  listenForUserInput(searchButton, locationInput, form);
+  user_input_listeners(searchButton, locationInput, form);
 
   return form;
 }
 
-
+/* harmony default export */ const input_form = (createInputForm);
 
 ;// CONCATENATED MODULE: ./src/ui_components/main_section/main_section.js
 
@@ -11299,7 +11390,7 @@ function createMainSection() {
   let mainSection = document.createElement("section");
   mainSection.classList.add("main");
   mainSection.append(
-    createInputForm(),
+    input_form(),
     current_weather_display(),
     future_forecast_display()
   );
