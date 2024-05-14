@@ -1,3 +1,5 @@
+// Controls and manages a given dropdown
+
 let dropdownController = (function dropdownController() {
   const dropdown = (() => {
     let dropdown = document.createElement("ul");

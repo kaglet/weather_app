@@ -397,7 +397,7 @@ label {
 
 form > div {
   display: grid;
-  grid-template: 1fr / auto 40rem auto;
+  grid-template: 1fr / auto 40rem auto auto;
   margin: auto;
 }
 
@@ -450,4 +450,20 @@ footer a:hover {
 
 .location.display {
   text-align: center;
+}
+
+.toggle.temperature {
+  background-color: rgb(202, 193, 28);
+  border-radius: 50%;
+  color: var(--primary-text-clr);
+  padding: 0.2rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: grid;
+  place-content: center;
+  box-shadow: var(--box-shadow-outset);
+}
+
+.toggle.temperature:hover {
+  cursor: pointer;
 }

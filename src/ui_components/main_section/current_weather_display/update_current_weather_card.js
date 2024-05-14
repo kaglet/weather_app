@@ -1,5 +1,6 @@
 import storageManager from "../../../in_session_storage/in_session_storage";
 import createCurrentMiniInfoCard from "../../info_card/current_mini_info_card";
+import preferencesManager from "../settings/preferences";
 import createMoreTodayInfoCard from "./today_more_weather_info_card/more_today_info";
 
 function updateCurrentWeatherCard() {
@@ -10,9 +11,15 @@ function updateCurrentWeatherCard() {
   let topDetailsWrapper = document.createElement("div");
   let miniCard = createCurrentMiniInfoCard(
     storageManager.getTodayData().summary.text,
-    storageManager.getTodayData().summary.mintemp_c,
-    storageManager.getTodayData().summary.maxtemp_c,
-    storageManager.getTodayData().summary.temp_c,
+    storageManager.getTodayData().summary[
+      `mintemp_${preferencesManager.getTemperaturePreference().toLowerCase()}`
+    ],
+    storageManager.getTodayData().summary[
+      `maxtemp_${preferencesManager.getTemperaturePreference().toLowerCase()}`
+    ],
+    storageManager.getTodayData().summary[
+      `temp_${preferencesManager.getTemperaturePreference().toLowerCase()}`
+    ],
     storageManager.getTodayData().summary.imageURL
   );
   let moreInfo = createMoreTodayInfoCard(

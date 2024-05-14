@@ -1,3 +1,5 @@
+import preferencesManager from "../main_section/settings/preferences";
+
 function createMiniInfoCard(condition, minTemp, maxTemp, imgURL) {
   let card = document.createElement("div");
   let pic = document.createElement("div");
@@ -19,8 +21,14 @@ function createMiniInfoCard(condition, minTemp, maxTemp, imgURL) {
   upArrowIcon.classList.add("up-arrow");
   downArrowIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2854C5"><path d="M440-800v487L216-537l-56 57 320 320 320-320-56-57-224 224v-487h-80Z"/></svg>`;
   upArrowIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#F9DB78"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></svg>`;
-  minTempDisplay.append(downArrowIcon, minTemp + "°C");
-  maxTempDisplay.append(upArrowIcon, maxTemp + "°C");
+  minTempDisplay.append(
+    downArrowIcon,
+    `${minTemp}°${preferencesManager.getTemperaturePreference()}`
+  );
+  maxTempDisplay.append(
+    upArrowIcon,
+    `${maxTemp}°${preferencesManager.getTemperaturePreference()}`
+  );
 
   minMaxTempsWrapper.append(minTempDisplay, maxTempDisplay);
 

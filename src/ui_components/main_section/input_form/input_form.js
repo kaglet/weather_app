@@ -1,3 +1,4 @@
+import createToggle from "../settings/celsius_farenheit/celsius_farenheit";
 import listenForUserInput from "./user_input_listeners";
 
 function createInputForm() {
@@ -8,6 +9,7 @@ function createInputForm() {
   let searchButton = document.createElement("button");
   let searchIcon = document.createElement("i");
   let locationInputWrapper = document.createElement("div");
+  let tempToggle = createToggle();
 
   let locationInputID = "location-input";
 
@@ -26,7 +28,7 @@ function createInputForm() {
 
   locationInputWrapper.append(locationInput);
 
-  wrapper.append(locationLabel, locationInputWrapper, searchButton);
+  wrapper.append(locationLabel, locationInputWrapper, searchButton, tempToggle);
   form.append(wrapper);
 
   listenForUserInput(searchButton, locationInput, form);
