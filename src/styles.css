@@ -397,13 +397,8 @@ label {
 
 form > div {
   display: grid;
-  grid-template: 1fr / auto 40rem auto auto;
+  grid-template: 1fr / auto 40rem auto;
   margin: auto;
-}
-
-.icon.wrapper {
-  display: grid;
-  place-content: center;
 }
 
 .location.input.wrapper > input {

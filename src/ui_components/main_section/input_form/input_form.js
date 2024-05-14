@@ -1,4 +1,3 @@
-import createSettingsDisplay from "../settings/create_settings_display";
 import listenForUserInput from "./user_input_listeners";
 
 function createInputForm() {
@@ -9,7 +8,6 @@ function createInputForm() {
   let searchButton = document.createElement("button");
   let searchIcon = document.createElement("i");
   let locationInputWrapper = document.createElement("div");
-  let settingsIcon = createSettingsDisplay();
 
   let locationInputID = "location-input";
 
@@ -28,12 +26,7 @@ function createInputForm() {
 
   locationInputWrapper.append(locationInput);
 
-  wrapper.append(
-    locationLabel,
-    locationInputWrapper,
-    searchButton,
-    settingsIcon
-  );
+  wrapper.append(locationLabel, locationInputWrapper, searchButton);
   form.append(wrapper);
 
   listenForUserInput(searchButton, locationInput, form);
