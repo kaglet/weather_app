@@ -2,7 +2,7 @@
 
 ## About
 
-This is a weather app that shows current and future weather of a given location with the new skill demonstrated being async JavaScript. This is the [4th project](https://www.theodinproject.com/lessons/node-path-javascript-weather-app#project-solution) of the [TOP](https://www.theodinproject.com/) course. Weather data and condition images are obtained from [WeatherAPI](https://www.weatherapi.com/).
+This is a weather app that shows current and future weather of a given location with the new skill demonstrated being async JavaScript. This is the [4th project](https://www.theodinproject.com/lessons/node-path-javascript-weather-app#project-solution) of [The Odin Project](https://www.theodinproject.com/). Weather data and condition images are obtained from [WeatherAPI](https://www.weatherapi.com/).
 
 Find the live link [here](https://kaglet.github.io/weather_app/).
 
